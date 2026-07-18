@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahmat Adeola Dawood, Medical Virtual Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f2e9;
+    --white:#ffffff;
+    --ink:#1b2926;
+    --ink-soft:#5b6864;
+    --teal:#2f6b64;
+    --teal-deep:#1c433f;
+    --teal-tint:#e4eeec;
+    --wine:#7d3f47;
+    --wine-deep:#582a30;
+    --wine-tint:#f2e5e4;
+    --line:#e2ddce;
+    --line-soft:#ece7d9;
+    --radius:4px;
+    --shadow-sm:0 1px 2px rgba(27,41,38,0.05);
+    --shadow-md:0 16px 36px rgba(28,67,63,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-weight:400;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink);}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--teal); color:#fff;}
+
+  /* tab-shaped eyebrow, echoes a folder tab instead of a dot marker */
+  .eyebrow{display:inline-flex; align-items:center; margin-bottom:16px;}
+  .eyebrow span{
+    font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.14em;
+    font-size:0.68rem; color:var(--teal-deep); font-weight:600;
+    background:var(--teal-tint); padding:7px 16px 7px 14px;
+    clip-path:polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+  }
+  .eyebrow.wine span{color:var(--wine-deep); background:var(--wine-tint);}
+
+  /* highlighter-style emphasis, no SVG dependency */
+  .mark{background-repeat:no-repeat; background-position:0 86%; background-size:100% 0.42em; padding:0 .06em;}
+  .mark--teal{background-image:linear-gradient(var(--teal-tint), var(--teal-tint));}
+  .mark--wine{background-image:linear-gradient(var(--wine-tint), var(--wine-tint));}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:15px 28px; max-width:1160px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:11px;}
+  .badge{
+    width:38px; height:38px; border-radius:8px; background:var(--teal-deep);
+    color:#fff; font-family:'Fraunces', serif; font-weight:600; font-size:0.92rem;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .brand-text{font-family:'Fraunces', serif; font-weight:600; font-size:1.02rem; line-height:1.2;}
+  .brand-text small{display:block; font-family:'Inter', sans-serif; font-size:0.68rem; letter-spacing:0.02em; color:var(--ink-soft); font-weight:400; margin-top:2px;}
+  nav ul{list-style:none; display:flex; gap:30px;}
+  nav a{position:relative; font-family:'Inter', sans-serif; font-size:0.92rem; font-weight:500; color:var(--ink); padding:6px 1px;}
+  nav a::after{content:''; position:absolute; left:50%; right:50%; bottom:0; height:2px; background:var(--wine); transition:left .22s ease, right .22s ease;}
+  nav a:hover::after{left:0; right:0;}
+  nav a:hover{color:var(--teal-deep);}
+  .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .burger span{width:22px; height:2px; background:var(--ink); display:block;}
+  .mobile-menu{display:none; flex-direction:column; padding:0 28px 20px; gap:0; border-top:1px solid var(--line);}
+  .mobile-menu a{font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:500; padding:14px 0; border-bottom:1px solid var(--line-soft); color:var(--ink);}
+  .mobile-menu.open{display:flex;}
+
+  /* buttons */
+  .btn{display:inline-flex; align-items:center; gap:9px; font-family:'Inter', sans-serif; font-size:0.92rem; font-weight:600; padding:14px 26px; border-radius:var(--radius); border:1.5px solid transparent; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, background .18s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-teal{background:var(--teal-deep); color:var(--white); box-shadow:var(--shadow-sm);}
+  .btn-teal:hover{background:var(--teal); box-shadow:var(--shadow-md);}
+  .btn-wine{background:var(--wine); color:var(--white); box-shadow:var(--shadow-sm);}
+  .btn-wine:hover{background:var(--wine-deep); box-shadow:0 16px 34px rgba(88,42,48,0.24);}
+  .btn-outline{background:transparent; color:var(--teal-deep); border-color:var(--teal);}
+  .btn-outline:hover{background:var(--teal-tint);}
+
+  /* HERO */
+  .hero{padding:64px 0 60px; position:relative; overflow:hidden;}
+  .hero::before{content:''; position:absolute; top:-160px; right:-200px; width:560px; height:560px; border-radius:50%; background:radial-gradient(circle, var(--teal-tint) 0%, transparent 70%); z-index:-1;}
+  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;}
+  .stamp{display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-deep); border:1px solid var(--teal); padding:7px 14px 7px 12px; border-radius:3px; margin-bottom:22px;}
+  .stamp::before{content:''; width:7px; height:7px; background:var(--wine); border-radius:1px; transform:rotate(45deg);}
+  .hero h1{font-size:clamp(2.3rem, 4.4vw, 3.5rem); line-height:1.1; margin-bottom:20px; font-weight:600;}
+  .hero .role{font-family:'Fraunces', serif; font-style:italic; font-weight:500; color:var(--teal-deep); font-size:1.24rem; margin-bottom:20px;}
+  .hero p.lede{max-width:48ch; color:var(--ink-soft); font-size:1.05rem; margin-bottom:30px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+
+  /* CHART CARD, signature graphic: a stacked patient-intake card instead of a spinning seal */
+  .card-stack{position:relative; width:100%; max-width:300px; margin:0 auto;}
+  .chart-card{width:100%; display:block;}
+  .stat-row{display:flex; gap:12px; width:100%; max-width:340px; margin:26px auto 0;}
+  .stat-chip{flex:1; text-align:center; padding:15px 8px; border-radius:var(--radius); background:var(--paper); border:1px solid var(--line);}
+  .stat-chip b{display:block; font-family:'Fraunces', serif; font-size:1.32rem; color:var(--teal-deep); font-weight:600; line-height:1.1;}
+  .stat-chip span{font-family:'IBM Plex Mono', monospace; font-size:0.6rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.03em; display:block; margin-top:6px;}
+
+  section{padding:64px 0;}
+  section.alt{background:var(--paper);}
+  .section-head{max-width:62ch; margin-bottom:36px;}
+  .section-head h2{font-size:clamp(1.8rem, 3vw, 2.4rem); margin-bottom:14px; line-height:1.18;}
+  .section-head p{color:var(--ink-soft); font-size:1.02rem;}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:60px; align-items:start;}
+  .about-copy p{color:var(--ink-soft); margin-bottom:16px; font-size:1.02rem;}
+  .pull-line{font-family:'Fraunces', serif; font-style:italic; font-size:1.16rem; color:var(--teal-deep); border-left:3px solid var(--wine); padding-left:20px; margin:24px 0; line-height:1.5;}
+  .skills-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 28px;}
+  .skills-block{margin-bottom:24px;}
+  .skills-block h3{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--teal-deep); margin-bottom:12px; font-weight:600; padding-bottom:7px; border-bottom:1px solid var(--line);}
+  .skills-block ul{list-style:none;}
+  .skills-block li{position:relative; padding:6px 0 6px 18px; font-size:0.9rem; color:var(--ink);}
+  .skills-block li::before{content:''; position:absolute; left:0; top:13px; width:6px; height:6px; background:var(--wine); border-radius:1px; transform:rotate(45deg);}
+
+  /* dog-eared card corner, the shared signature card treatment */
+  .fold{position:relative; overflow:visible;}
+  .fold::after{content:''; position:absolute; top:0; right:0; width:0; height:0; border-style:solid; border-width:0 20px 20px 0; border-color:transparent var(--paper) transparent transparent; filter:drop-shadow(-2px 2px 2px rgba(27,41,38,0.08));}
+  section.alt .fold::after{border-color:transparent var(--white) transparent transparent;}
+
+  /* SERVICES */
+  .services-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;}
+  .service-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 24px; display:flex; flex-direction:column; gap:14px; transition:box-shadow .22s ease, transform .22s ease, border-color .22s ease;}
+  .service-card:hover{box-shadow:var(--shadow-md); transform:translateY(-4px); border-color:var(--teal);}
+  .service-icon{width:42px; height:42px; border-radius:8px; background:var(--teal-tint); display:flex; align-items:center; justify-content:center;}
+  .service-icon svg{width:20px; height:20px; stroke:var(--teal-deep); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;}
+  .service-card h3{font-size:1.06rem; font-weight:600;}
+  .service-card p{color:var(--ink-soft); font-size:0.9rem; flex-grow:1;}
+  .price-tag{font-family:'IBM Plex Mono', monospace; font-size:1rem; font-weight:600; color:var(--teal-deep); border-top:1px solid var(--line); padding-top:14px;}
+  .price-tag em{font-style:normal; color:var(--ink-soft); font-weight:400; font-size:0.68rem; display:block; margin-top:4px; text-transform:uppercase; letter-spacing:0.05em;}
+  .price-note{margin-top:20px; font-size:0.86rem; color:var(--ink-soft); font-style:italic;}
+
+  /* WORK SAMPLES */
+  .subhead{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal-deep); font-weight:600; margin:44px 0 18px; padding-bottom:8px; border-bottom:1px solid var(--line);}
+  .subhead:first-of-type{margin-top:0;}
+  .samples-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; align-items:start;}
+  .ig-card{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; transition:box-shadow .22s ease, transform .22s ease, border-color .22s ease; background:var(--paper); position:relative; min-height:340px;}
+  .ig-card:hover{box-shadow:var(--shadow-md); transform:translateY(-4px); border-color:var(--wine);}
+  .ig-card iframe{display:block;}
+  .ig-fallback{
+    display:none; flex-direction:column; align-items:center; justify-content:center; gap:12px;
+    height:100%; min-height:340px; padding:24px; text-align:center;
+  }
+  .ig-card.show-fallback .ig-fallback{display:flex;}
+  .ig-card.show-fallback blockquote{display:none;}
+  .play-badge{width:46px; height:46px; border-radius:8px; background:var(--wine-tint); display:flex; align-items:center; justify-content:center;}
+  .play-badge svg{width:18px; height:18px; fill:var(--wine-deep);}
+  .ig-fallback p{font-size:0.82rem; color:var(--ink-soft);}
+  .ig-fallback a{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--teal-deep); font-weight:600; border-bottom:1px solid var(--teal);}
+
+  .docs-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+  .doc-card{border:1px solid var(--line); border-radius:var(--radius); background:var(--white); padding:22px; display:flex; flex-direction:column; gap:12px; min-height:180px;}
+  section.alt .doc-card{background:var(--white);}
+  .doc-icon{width:38px; height:38px; border-radius:8px; background:var(--wine-tint); display:flex; align-items:center; justify-content:center;}
+  .doc-icon svg{width:17px; height:17px; stroke:var(--wine-deep); fill:none; stroke-width:1.7;}
+  .doc-card h4{font-size:0.98rem; font-weight:600; font-family:'Inter', sans-serif;}
+  .doc-card p{font-size:0.84rem; color:var(--ink-soft); flex-grow:1;}
+  .doc-placeholder{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--wine-deep); background:var(--wine-tint); padding:6px 10px; border-radius:3px; align-self:flex-start;}
+  .doc-card--embed{min-height:auto; padding:18px;}
+  .doc-embed{border:1px solid var(--line); border-radius:3px; overflow:hidden; background:var(--paper);}
+  .doc-embed iframe{width:100%; height:340px; border:none; display:block;}
+  .docs-grid--embeds{grid-template-columns:1fr 1fr 0.8fr;}
+  @media (max-width: 900px){ .docs-grid--embeds{grid-template-columns:1fr 1fr;} }
+  @media (max-width: 560px){ .docs-grid--embeds{grid-template-columns:1fr;} .doc-embed iframe{height:280px;} }
+
+  /* CONTACT */
+  .contact-wrap{display:grid; grid-template-columns:1fr 0.9fr; gap:56px; align-items:stretch;}
+  .contact-list{display:flex; flex-direction:column; gap:0;}
+  .contact-item{display:flex; align-items:center; gap:18px; padding:18px 0; border-bottom:1px solid var(--line);}
+  .contact-icon{width:44px; height:44px; border-radius:8px; background:var(--teal-tint); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .contact-icon svg{width:19px; height:19px; stroke:var(--teal-deep); fill:none; stroke-width:1.7;}
+  .contact-item .label{font-family:'IBM Plex Mono', monospace; font-size:0.64rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-soft); margin-bottom:3px;}
+  .contact-item .value{font-size:1rem; font-weight:500;}
+  .contact-item .value.placeholder{color:var(--ink-soft); font-style:italic; font-weight:400;}
+  .contact-cta{background:var(--teal-deep); color:var(--white); border-radius:var(--radius); padding:40px 34px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden;}
+  .contact-cta::before{content:''; position:absolute; bottom:-50px; right:-50px; width:180px; height:180px; border-radius:16px; background:rgba(255,255,255,0.06); transform:rotate(18deg);}
+  .contact-cta > *{position:relative; z-index:1;}
+  .contact-cta h3{color:var(--white); font-size:1.46rem; margin-bottom:12px; line-height:1.25;}
+  .contact-cta p{color:rgba(255,255,255,0.82); margin-bottom:24px; font-size:0.95rem;}
+
+  footer{padding:28px 0; border-top:1px solid var(--line); text-align:center;}
+  footer p{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--ink-soft); letter-spacing:0.04em;}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .55s ease, transform .55s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;} }
+
+  @media (max-width: 900px){
+    nav{display:none;}
+    .burger{display:flex;}
+    .hero-grid, .about-grid, .contact-wrap{grid-template-columns:1fr; gap:36px;}
+    .services-grid{grid-template-columns:repeat(2, 1fr);}
+    .samples-grid{grid-template-columns:repeat(2, 1fr);}
+    .docs-grid{grid-template-columns:1fr 1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    section{padding:48px 0;}
+    .hero{padding:36px 0 32px;}
+  }
+  @media (max-width: 560px){
+    .services-grid{grid-template-columns:1fr;}
+    .samples-grid{grid-template-columns:1fr;}
+    .docs-grid{grid-template-columns:1fr;}
+    .hero-ctas{flex-direction:column; align-items:stretch;}
+    .btn{justify-content:center;}
+    .brand-text{font-size:0.92rem;}
+    .stat-row{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="badge">RD</div>
+      <div class="brand-text">Rahmat Dawood<small>Medical Virtual Assistant</small></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services &amp; Pricing</a></li>
+        <li><a href="#work">Work Samples</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#services">Services &amp; Pricing</a>
+    <a href="#work">Work Samples</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="stamp">Available for new clients</div>
+      <h1>Reliable, fast, and
+        <span class="mark mark--teal">HIPAA-aware</span>
+        support for your practice.
+      </h1>
+      <p class="role">Medical Virtual Assistant</p>
+      <p class="lede">I handle the administrative backbone of patient care: intake, scheduling, documentation, and records, so your clinical team can stay focused on patients, not paperwork.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-teal">Work With Me →</a>
+        <a href="#work" class="btn btn-outline">View Work Samples</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="card-stack">
+        <svg class="chart-card" viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- back card, offset for a stacked-folder feel -->
+          <rect x="24" y="18" width="230" height="330" rx="6" fill="var(--paper)" stroke="var(--line)" transform="rotate(4 139 183)"/>
+          <!-- front card -->
+          <g transform="rotate(-3 130 175)">
+            <rect x="10" y="10" width="230" height="330" rx="6" fill="#ffffff" stroke="var(--line)" stroke-width="1.4"/>
+            <rect x="10" y="10" width="230" height="46" rx="6" fill="var(--teal-deep)"/>
+            <rect x="10" y="42" width="230" height="14" fill="var(--teal-deep)"/>
+            <text x="28" y="38" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" fill="#ffffff">PATIENT INTAKE</text>
+            <circle cx="216" cy="33" r="4" fill="var(--wine)"/>
+            <!-- ruled lines mimicking a filled form -->
+            <line x1="28" y1="82" x2="222" y2="82" stroke="var(--line)" stroke-width="2"/>
+            <rect x="28" y="72" width="70" height="8" fill="var(--teal-tint)"/>
+            <line x1="28" y1="112" x2="222" y2="112" stroke="var(--line)" stroke-width="2"/>
+            <rect x="28" y="102" width="110" height="8" fill="var(--teal-tint)"/>
+            <line x1="28" y1="142" x2="222" y2="142" stroke="var(--line)" stroke-width="2"/>
+            <rect x="28" y="132" width="90" height="8" fill="var(--wine-tint)"/>
+            <!-- checklist rows, squares instead of circles -->
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)">
+              <rect x="28" y="172" width="12" height="12" rx="2" fill="var(--teal)"/>
+              <path d="M31 178l2.4 2.4L37 175" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="48" y="182">Insurance verified</text>
+
+              <rect x="28" y="198" width="12" height="12" rx="2" fill="var(--teal)"/>
+              <path d="M31 204l2.4 2.4L37 201" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="48" y="208">Records updated</text>
+
+              <rect x="28" y="224" width="12" height="12" rx="2" fill="none" stroke="var(--line)" stroke-width="1.6"/>
+              <text x="48" y="234">Follow-up scheduled</text>
+            </g>
+            <!-- footer status strip -->
+            <rect x="10" y="292" width="230" height="48" rx="6" fill="var(--paper)"/>
+            <text x="28" y="313" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1.4" fill="var(--ink-soft)">STATUS</text>
+            <text x="28" y="329" font-family="Fraunces, serif" font-size="14" font-weight="600" fill="var(--teal-deep)">Ready for review</text>
+          </g>
+          <!-- paperclip accent, top-left -->
+          <path d="M52 4 v34 a10 10 0 0 1-20 0 v-26" fill="none" stroke="var(--wine)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="stat-row">
+        <div class="stat-chip"><b>2 mo</b><span>Hands-on training</span></div>
+        <div class="stat-chip"><b>100%</b><span>Confidentiality</span></div>
+        <div class="stat-chip"><b>7+</b><span>Core skill areas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span>About Me</span></div>
+      <h2>A dependable extra pair of hands for <span class="mark mark--wine">healthcare teams</span></h2>
+      <p>Over the last two months I've trained intensively as a Medical Virtual Assistant, building real fluency in patient-facing administration, clinical documentation, and the compliance standards that protect patient trust.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>I'm Rahmat Adeola Dawood, a Medical Virtual Assistant supporting clinics and providers remotely. My focus is simple: handle the administrative and documentation load accurately and on time, with patient privacy treated as non-negotiable at every step.</p>
+        <p>I came into this field through structured, hands-on MVA training covering intake, EMR systems, medical coding, and HIPAA-compliant communication, and I've kept building on it every week since.</p>
+        <div class="pull-line">"Whether it's a scheduling calendar, an EMR entry, or a SOAP note, I hold myself to the same standard: <span class="mark mark--teal">accurate, fast, discreet</span>."</div>
+      </div>
+
+      <div class="skills-grid">
+        <div>
+          <div class="skills-block">
+            <h3>Clinical &amp; Medical Knowledge</h3>
+            <ul>
+              <li>Medical terminology (root words, prefixes, suffixes)</li>
+              <li>Healthcare systems &amp; structures</li>
+              <li>Patient care workflows</li>
+              <li>Common medical abbreviations</li>
+            </ul>
+          </div>
+          <div class="skills-block">
+            <h3>Compliance &amp; Privacy</h3>
+            <ul>
+              <li>HIPAA compliance awareness</li>
+              <li>Patient data confidentiality &amp; privacy handling</li>
+              <li>Protected Health Information (PHI) management</li>
+              <li>Healthcare regulatory standards</li>
+            </ul>
+          </div>
+          <div class="skills-block">
+            <h3>EMR / EHR &amp; Digital Tools</h3>
+            <ul>
+              <li>Electronic Medical Records (EMR) management</li>
+              <li>OpenEMR navigation</li>
+              <li>Patient registration, onboarding &amp; data entry</li>
+              <li>Digital healthcare tools management</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="skills-block">
+            <h3>Medical Coding &amp; Records</h3>
+            <ul>
+              <li>Medical coding (AMA &amp; CMS code sets)</li>
+              <li>CPT code lookup &amp; interpretation</li>
+              <li>HCPCS Level II code familiarity</li>
+              <li>Medical documentation review &amp; records analysis</li>
+              <li>Clinical documentation support</li>
+            </ul>
+          </div>
+          <div class="skills-block">
+            <h3>Communication &amp; Admin Support</h3>
+            <ul>
+              <li>Professional, empathetic patient communication</li>
+              <li>Patient intake &amp; appointment scheduling</li>
+              <li>SOAP note documentation</li>
+              <li>HMO / insurance verification</li>
+              <li>Data accuracy &amp; attention to detail</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="alt reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow wine"><span>Services &amp; Pricing</span></div>
+      <h2>Support built around <span class="mark mark--teal">your workflow</span></h2>
+      <p>Starting rates below, easy to adjust to your scope, hours, and volume. Reach out for a custom quote.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card fold">
+        <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 3v3M16 3v3"/><circle cx="8.5" cy="14" r="1"/><circle cx="12" cy="14" r="1"/><circle cx="15.5" cy="14" r="1"/></svg></div>
+        <h3>Patient Intake &amp; Scheduling</h3>
+        <p>New patient onboarding, appointment booking, calendar management, and reminder follow-ups.</p>
+        <div class="price-tag">$10 / hr<em>or $180 per week, part-time</em></div>
+      </div>
+      <div class="service-card fold">
+        <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M15 3v5h5M9 13h6M9 17h6M9 9h2"/></svg></div>
+        <h3>Documentation &amp; SOAP Notes</h3>
+        <p>Accurate SOAP note documentation and clinical documentation support, formatted to your practice's standard.</p>
+        <div class="price-tag">$12 / hr<em>or $3 per note</em></div>
+      </div>
+      <div class="service-card fold">
+        <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5V12c0 1.5 3.5 2.8 8 2.8s8-1.3 8-2.8V5.5M4 12v6.5c0 1.5 3.5 2.8 8 2.8s8-1.3 8-2.8V12"/></svg></div>
+        <h3>EMR / EHR Data Entry</h3>
+        <p>Patient registration, data entry, and records management inside OpenEMR or your preferred EHR system.</p>
+        <div class="price-tag">$9 / hr<em>volume discounts available</em></div>
+      </div>
+      <div class="service-card fold">
+        <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 3.5v5.2C20 17 16.6 20.4 12 21.5 7.4 20.4 4 17 4 11.7V6.5L12 3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Insurance &amp; Coding Support</h3>
+        <p>HMO/insurance verification and CPT / HCPCS Level II code lookup to support accurate billing.</p>
+        <div class="price-tag">$11 / hr<em>or $2 per claim checked</em></div>
+      </div>
+      <div class="service-card fold">
+        <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1H9l-4 4v-4H4a1 1 0 01-1-1V6a1 1 0 011-1z"/><rect x="10" y="9" width="4" height="3" rx="0.5"/><path d="M11 9V8a1 1 0 012 0v1"/></svg></div>
+        <h3>HIPAA-Compliant Communication</h3>
+        <p>Professional, empathetic patient-facing communication that keeps PHI handled correctly, every time.</p>
+        <div class="price-tag">$10 / hr<em>email, chat &amp; phone support</em></div>
+      </div>
+      <div class="service-card fold">
+        <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18"/></svg></div>
+        <h3>General Admin Support</h3>
+        <p>Ongoing administrative support across intake, documentation, and records, tailored to your practice.</p>
+        <div class="price-tag">From $650 / mo<em>20 hrs/week retainer</em></div>
+      </div>
+    </div>
+    <p class="price-note">Rates shown are starting points for part-time, remote engagements and scale with scope, hours, and turnaround needs — happy to put together a custom quote.</p>
+  </div>
+</section>
+
+<!-- WORK SAMPLES -->
+<section id="work" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span>Work Samples</span></div>
+      <h2>See the work in <span class="mark mark--wine">motion</span></h2>
+      <p>Live clips from my training and practice work as an MVA, plus sample documentation.</p>
+    </div>
+
+    <div class="subhead">Video Reels</div>
+    <div class="samples-grid" id="igGrid">
+      <div class="ig-card">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZhdxcfIxst/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      </div>
+      <div class="ig-card">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZzjMiLIohT/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      </div>
+      <div class="ig-card">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaFKLYqI_CY/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      </div>
+      <div class="ig-card">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaahItjoAwj/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      </div>
+      <div class="ig-card">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DasrA3NIrjl/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      </div>
+      <div class="ig-card">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DasrOQfo0ep/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      </div>
+      <div class="ig-card">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Das04QaIQvh/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/Das04QaIQvh/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/Das04QaIQvh/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      </div>
+    </div>
+
+    <div class="subhead">Documents &amp; SOAP Notes</div>
+    <div class="docs-grid docs-grid--embeds">
+      <div class="doc-card doc-card--embed">
+        <h4>SOAP Note Sample — Week 2</h4>
+        <p>Patient intake form, scheduling link, and a full SOAP note (subjective, objective, assessment, plan).</p>
+        <div class="doc-embed">
+          <iframe src="https://docs.google.com/document/d/1Dl2QhpMA6axk57ZAZiE7NO_h8ssVYrrDIqxSwXhm5Q8/preview" loading="lazy" allow="autoplay"></iframe>
+        </div>
+      </div>
+      <div class="doc-card doc-card--embed">
+        <h4>Billing &amp; Coding Sample — Week 3</h4>
+        <p>Billing code lookups and insurance/coding reference work from training.</p>
+        <div class="doc-embed">
+          <iframe src="https://docs.google.com/document/d/1qFM8bpgw8BJk_SAhYyvC5_TIGKDWa2rKIKH1_2xSLtU/preview" loading="lazy" allow="autoplay"></iframe>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M15 3v5h5M9 13h6M9 17h6"/></svg></div>
+        <h4>Sample Records Log</h4>
+        <p>Send me another Google Doc link (Share → "Anyone with the link" → Viewer) and I'll embed it here too.</p>
+        <span class="doc-placeholder">[ Waiting on link ]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow wine"><span>Contact Me</span></div>
+      <h2>Let's keep your <span class="mark mark--teal">front office</span> running smoothly.</h2>
+      <p>Reach out with your scope of work and I'll follow up within one business day.</p>
+    </div>
+
+    <div class="contact-wrap">
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l9 7 9-7M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg></div>
+          <div><div class="label">Email</div><a class="value placeholder" href="mailto:youremail@example.com">[ your.email@example.com ]</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.97.76l1 4a1 1 0 01-.29 1L7.4 10.3a16 16 0 006.3 6.3l1.54-1.56a1 1 0 011-.29l4 1a1 1 0 01.76.97V19a2 2 0 01-2 2h-1C10.5 21 3 13.5 3 4V5z"/></svg></div>
+          <div><div class="label">Phone / WhatsApp</div><a class="value placeholder" href="tel:+000000000">[ +234 XXX XXX XXXX ]</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="3"/><path stroke-linecap="round" d="M7 10v7M7 7v.01M12 17v-4a2 2 0 014 0v4M12 13v4"/></svg></div>
+          <div><div class="label">LinkedIn</div><a class="value placeholder" href="#" target="_blank" rel="noopener">[ linkedin.com/in/yourname ]</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></div>
+          <div><div class="label">Instagram</div><a class="value placeholder" href="#" target="_blank" rel="noopener">[ @yourhandle ]</a></div>
+        </div>
+      </div>
+
+      <div class="contact-cta">
+        <h3>Ready to hand off your admin work?</h3>
+        <p>Tell me what your practice needs support with: intake, documentation, records, or all three, and I'll put together a plan.</p>
+        <a href="mailto:youremail@example.com" class="btn btn-wine">Send Me a Message →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Rahmat Adeola Dawood · Medical Virtual Assistant · Reliable / Fast / HIPAA-Aware</p>
+</footer>
+
+<script async src="//www.instagram.com/embed.js"></script>
+<script>
+  const burger = document.getElementById('burgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); } });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  /* Instagram embeds: retry processing a few times (the script often
+     loads after these blockquotes exist), then fall back to a clean
+     "watch on Instagram" card for any that never turn into an iframe
+     — so a card is never left blank. */
+  function processIG(){
+    if(window.instgrm && window.instgrm.Embeds){
+      window.instgrm.Embeds.process();
+    }
+  }
+  let igTries = 0;
+  const igInterval = setInterval(() => {
+    processIG();
+    igTries++;
+    if(igTries > 6) clearInterval(igInterval);
+  }, 800);
+  window.addEventListener('load', processIG);
+
+  setTimeout(() => {
+    document.querySelectorAll('.ig-card').forEach(card => {
+      if(!card.querySelector('iframe')){
+        card.classList.add('show-fallback');
+      }
+    });
+  }, 6000);
+</script>
+
+</body>
+</html>
