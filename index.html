@@ -6,215 +6,231 @@
 <title>Rahmat Adeola Dawood, Medical Virtual Assistant</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f6f2e9;
+    --paper:#f7f3ea;
+    --paper-deep:#efe8d6;
     --white:#ffffff;
-    --ink:#1b2926;
-    --ink-soft:#5b6864;
-    --teal:#2f6b64;
-    --teal-deep:#1c433f;
-    --teal-tint:#e4eeec;
-    --wine:#7d3f47;
-    --wine-deep:#582a30;
-    --wine-tint:#f2e5e4;
-    --line:#e2ddce;
-    --line-soft:#ece7d9;
-    --radius:4px;
-    --shadow-sm:0 1px 2px rgba(27,41,38,0.05);
-    --shadow-md:0 16px 36px rgba(28,67,63,0.12);
+    --ink:#14181a;
+    --ink-soft:#5c635f;
+    --emerald:#123f35;
+    --emerald-deep:#0a2b24;
+    --emerald-tint:#e4ece8;
+    --gold:#b08d47;
+    --gold-deep:#8f6f34;
+    --gold-tint:#f3ead2;
+    --wine:#6d2f37;
+    --wine-deep:#4c2027;
+    --wine-tint:#f1e3e2;
+    --line:#ded6c0;
+    --line-soft:#e8e2cf;
+    --radius:2px;
+    --shadow-sm:0 1px 3px rgba(10,43,36,0.08);
+    --shadow-md:0 22px 44px rgba(10,43,36,0.16);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--white);
+    background:
+      radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+      var(--white);
+    background-size:3px 3px;
     color:var(--ink);
-    font-family:'Inter', sans-serif;
+    font-family:'Manrope', sans-serif;
     font-weight:400;
-    line-height:1.62;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
   }
-  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink);}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.012em; color:var(--ink);}
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
-  .wrap{max-width:1160px; margin:0 auto; padding:0 28px;}
-  ::selection{background:var(--teal); color:#fff;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  ::selection{background:var(--emerald); color:#fff;}
 
-  /* tab-shaped eyebrow, echoes a folder tab instead of a dot marker */
-  .eyebrow{display:inline-flex; align-items:center; margin-bottom:16px;}
+  .eyebrow{display:inline-flex; align-items:center; gap:10px; margin-bottom:18px;}
+  .eyebrow::before{content:''; width:20px; height:1px; background:var(--gold);}
   .eyebrow span{
-    font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.14em;
-    font-size:0.68rem; color:var(--teal-deep); font-weight:600;
-    background:var(--teal-tint); padding:7px 16px 7px 14px;
-    clip-path:polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+    font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.18em;
+    font-size:0.68rem; color:var(--gold-deep); font-weight:600;
   }
-  .eyebrow.wine span{color:var(--wine-deep); background:var(--wine-tint);}
 
-  /* highlighter-style emphasis, no SVG dependency */
-  .mark{background-repeat:no-repeat; background-position:0 86%; background-size:100% 0.42em; padding:0 .06em;}
-  .mark--teal{background-image:linear-gradient(var(--teal-tint), var(--teal-tint));}
-  .mark--wine{background-image:linear-gradient(var(--wine-tint), var(--wine-tint));}
+  .mark{background-repeat:no-repeat; background-position:0 88%; background-size:100% 0.38em; padding:0 .05em;}
+  .mark--teal{background-image:linear-gradient(var(--emerald-tint), var(--emerald-tint));}
+  .mark--wine{background-image:linear-gradient(var(--gold-tint), var(--gold-tint));}
+
+  .rule{border:none; border-top:1px solid var(--line); position:relative; margin:0;}
+  .rule-orn{display:flex; align-items:center; gap:14px; margin:0;}
+  .rule-orn::before,.rule-orn::after{content:''; flex:1; height:1px; background:var(--line);}
+  .rule-orn i{width:6px; height:6px; background:var(--gold); transform:rotate(45deg); display:block;}
 
   /* NAV */
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(10px);
+    background:rgba(247,243,234,0.92);
+    backdrop-filter:blur(12px);
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
     display:flex; align-items:center; justify-content:space-between;
-    padding:15px 28px; max-width:1160px; margin:0 auto;
+    padding:14px 32px; max-width:1180px; margin:0 auto;
   }
-  .brand{display:flex; align-items:center; gap:11px;}
-  .badge{
-    width:38px; height:38px; border-radius:8px; background:var(--teal-deep);
-    color:#fff; font-family:'Fraunces', serif; font-weight:600; font-size:0.92rem;
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  .brand-text{font-family:'Fraunces', serif; font-weight:600; font-size:1.02rem; line-height:1.2;}
-  .brand-text small{display:block; font-family:'Inter', sans-serif; font-size:0.68rem; letter-spacing:0.02em; color:var(--ink-soft); font-weight:400; margin-top:2px;}
-  nav ul{list-style:none; display:flex; gap:30px;}
-  nav a{position:relative; font-family:'Inter', sans-serif; font-size:0.92rem; font-weight:500; color:var(--ink); padding:6px 1px;}
-  nav a::after{content:''; position:absolute; left:50%; right:50%; bottom:0; height:2px; background:var(--wine); transition:left .22s ease, right .22s ease;}
+  .brand{display:flex; align-items:center; gap:13px;}
+  .mark-icon{width:42px; height:42px; flex-shrink:0;}
+  .brand-text{font-family:'Fraunces', serif; font-weight:600; font-size:1.06rem; line-height:1.2; letter-spacing:0.01em;}
+  .brand-text small{display:block; font-family:'IBM Plex Mono', monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.13em; color:var(--gold-deep); font-weight:500; margin-top:3px;}
+  nav ul{list-style:none; display:flex; gap:34px;}
+  nav a{position:relative; font-family:'Manrope', sans-serif; font-size:0.9rem; font-weight:500; color:var(--ink); padding:6px 1px;}
+  nav a::after{content:''; position:absolute; left:50%; right:50%; bottom:0; height:1px; background:var(--gold-deep); transition:left .25s ease, right .25s ease;}
   nav a:hover::after{left:0; right:0;}
-  nav a:hover{color:var(--teal-deep);}
+  nav a:hover{color:var(--emerald-deep);}
   .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
-  .burger span{width:22px; height:2px; background:var(--ink); display:block;}
-  .mobile-menu{display:none; flex-direction:column; padding:0 28px 20px; gap:0; border-top:1px solid var(--line);}
-  .mobile-menu a{font-family:'Inter', sans-serif; font-size:0.95rem; font-weight:500; padding:14px 0; border-bottom:1px solid var(--line-soft); color:var(--ink);}
+  .burger span{width:22px; height:1px; background:var(--ink); display:block;}
+  .mobile-menu{display:none; flex-direction:column; padding:0 32px 20px; gap:0; border-top:1px solid var(--line);}
+  .mobile-menu a{font-family:'Manrope', sans-serif; font-size:0.95rem; font-weight:500; padding:14px 0; border-bottom:1px solid var(--line-soft); color:var(--ink);}
   .mobile-menu.open{display:flex;}
 
   /* buttons */
-  .btn{display:inline-flex; align-items:center; gap:9px; font-family:'Inter', sans-serif; font-size:0.92rem; font-weight:600; padding:14px 26px; border-radius:var(--radius); border:1.5px solid transparent; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, background .18s ease;}
-  .btn:hover{transform:translateY(-2px);}
-  .btn-teal{background:var(--teal-deep); color:var(--white); box-shadow:var(--shadow-sm);}
-  .btn-teal:hover{background:var(--teal); box-shadow:var(--shadow-md);}
-  .btn-wine{background:var(--wine); color:var(--white); box-shadow:var(--shadow-sm);}
-  .btn-wine:hover{background:var(--wine-deep); box-shadow:0 16px 34px rgba(88,42,48,0.24);}
-  .btn-outline{background:transparent; color:var(--teal-deep); border-color:var(--teal);}
-  .btn-outline:hover{background:var(--teal-tint);}
+  .btn{display:inline-flex; align-items:center; gap:10px; font-family:'Manrope', sans-serif; font-size:0.86rem; font-weight:600; letter-spacing:0.01em; padding:15px 30px; border-radius:var(--radius); border:1px solid transparent; cursor:pointer; transition:all .25s ease; position:relative; overflow:hidden; z-index:1;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn-emerald{background:var(--emerald-deep); color:var(--white); box-shadow:var(--shadow-sm);}
+  .btn-emerald:hover{background:var(--emerald); box-shadow:var(--shadow-md);}
+  .btn-gold{background:transparent; color:var(--emerald-deep); border-color:var(--gold-deep);}
+  .btn-gold::before{content:''; position:absolute; inset:0; background:var(--gold-deep); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; z-index:-1;}
+  .btn-gold:hover{color:var(--white);}
+  .btn-gold:hover::before{transform:scaleX(1);}
+  .btn-outline{background:transparent; color:var(--emerald-deep); border-color:var(--emerald);}
+  .btn-outline:hover{background:var(--emerald-tint);}
 
   /* HERO */
-  .hero{padding:64px 0 60px; position:relative; overflow:hidden;}
-  .hero::before{content:''; position:absolute; top:-160px; right:-200px; width:560px; height:560px; border-radius:50%; background:radial-gradient(circle, var(--teal-tint) 0%, transparent 70%); z-index:-1;}
-  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;}
-  .stamp{display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-deep); border:1px solid var(--teal); padding:7px 14px 7px 12px; border-radius:3px; margin-bottom:22px;}
-  .stamp::before{content:''; width:7px; height:7px; background:var(--wine); border-radius:1px; transform:rotate(45deg);}
-  .hero h1{font-size:clamp(2.3rem, 4.4vw, 3.5rem); line-height:1.1; margin-bottom:20px; font-weight:600;}
-  .hero .role{font-family:'Fraunces', serif; font-style:italic; font-weight:500; color:var(--teal-deep); font-size:1.24rem; margin-bottom:20px;}
-  .hero p.lede{max-width:48ch; color:var(--ink-soft); font-size:1.05rem; margin-bottom:30px;}
+  .hero{padding:76px 0 68px; position:relative; overflow:hidden;}
+  .hero::before{content:''; position:absolute; top:-180px; right:-220px; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle, var(--emerald-tint) 0%, transparent 68%); z-index:-1;}
+  .hero-watermark{position:absolute; top:50%; left:-60px; width:640px; height:640px; transform:translateY(-50%); opacity:0.045; z-index:-1; pointer-events:none;}
+  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:center;}
+  .stamp{display:inline-flex; align-items:center; gap:9px; font-family:'IBM Plex Mono', monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--emerald-deep); border:1px solid var(--gold); padding:8px 15px 8px 12px; margin-bottom:26px;}
+  .stamp::before{content:''; width:6px; height:6px; background:var(--gold-deep); transform:rotate(45deg);}
+  .hero h1{font-size:clamp(2.4rem, 4.6vw, 3.75rem); line-height:1.08; margin-bottom:22px; font-weight:600;}
+  .hero .role{font-family:'Fraunces', serif; font-style:italic; font-weight:500; color:var(--emerald-deep); font-size:1.3rem; margin-bottom:22px;}
+  .hero p.lede{max-width:48ch; color:var(--ink-soft); font-size:1.06rem; margin-bottom:32px;}
   .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
 
-  /* CHART CARD, signature graphic: a stacked patient-intake card instead of a spinning seal */
   .card-stack{position:relative; width:100%; max-width:300px; margin:0 auto;}
-  .chart-card{width:100%; display:block;}
-  .stat-row{display:flex; gap:12px; width:100%; max-width:340px; margin:26px auto 0;}
-  .stat-chip{flex:1; text-align:center; padding:15px 8px; border-radius:var(--radius); background:var(--paper); border:1px solid var(--line);}
-  .stat-chip b{display:block; font-family:'Fraunces', serif; font-size:1.32rem; color:var(--teal-deep); font-weight:600; line-height:1.1;}
-  .stat-chip span{font-family:'IBM Plex Mono', monospace; font-size:0.6rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.03em; display:block; margin-top:6px;}
+  .chart-card{width:100%; display:block; filter:drop-shadow(0 30px 40px rgba(10,43,36,0.18));}
+  .stat-row{display:flex; gap:0; width:100%; max-width:340px; margin:30px auto 0; border:1px solid var(--line);}
+  .stat-chip{flex:1; text-align:center; padding:18px 8px; background:var(--paper);}
+  .stat-chip + .stat-chip{border-left:1px solid var(--line);}
+  .stat-chip b{display:block; font-family:'Fraunces', serif; font-size:1.4rem; color:var(--emerald-deep); font-weight:600; line-height:1.1;}
+  .stat-chip span{font-family:'IBM Plex Mono', monospace; font-size:0.58rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:7px;}
 
-  section{padding:64px 0;}
+  section{padding:76px 0;}
   section.alt{background:var(--paper);}
-  .section-head{max-width:62ch; margin-bottom:36px;}
-  .section-head h2{font-size:clamp(1.8rem, 3vw, 2.4rem); margin-bottom:14px; line-height:1.18;}
-  .section-head p{color:var(--ink-soft); font-size:1.02rem;}
+  .section-head{max-width:62ch; margin-bottom:44px;}
+  .section-head h2{font-size:clamp(1.9rem, 3.1vw, 2.55rem); margin-bottom:16px; line-height:1.16;}
+  .section-head p{color:var(--ink-soft); font-size:1.03rem;}
 
   /* ABOUT */
-  .about-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:60px; align-items:start;}
-  .about-copy p{color:var(--ink-soft); margin-bottom:16px; font-size:1.02rem;}
-  .pull-line{font-family:'Fraunces', serif; font-style:italic; font-size:1.16rem; color:var(--teal-deep); border-left:3px solid var(--wine); padding-left:20px; margin:24px 0; line-height:1.5;}
-  .skills-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 28px;}
-  .skills-block{margin-bottom:24px;}
-  .skills-block h3{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--teal-deep); margin-bottom:12px; font-weight:600; padding-bottom:7px; border-bottom:1px solid var(--line);}
+  .about-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:64px; align-items:start;}
+  .about-copy p{color:var(--ink-soft); margin-bottom:17px; font-size:1.03rem;}
+  .pull-line{font-family:'Fraunces', serif; font-style:italic; font-size:1.2rem; color:var(--emerald-deep); border-left:1px solid var(--gold-deep); padding-left:22px; margin:26px 0; line-height:1.55;}
+  .skills-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 30px;}
+  .skills-block{margin-bottom:26px;}
+  .skills-block h3{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--emerald-deep); margin-bottom:13px; font-weight:600; padding-bottom:8px; border-bottom:1px solid var(--line);}
   .skills-block ul{list-style:none;}
-  .skills-block li{position:relative; padding:6px 0 6px 18px; font-size:0.9rem; color:var(--ink);}
-  .skills-block li::before{content:''; position:absolute; left:0; top:13px; width:6px; height:6px; background:var(--wine); border-radius:1px; transform:rotate(45deg);}
+  .skills-block li{position:relative; padding:6px 0 6px 20px; font-size:0.9rem; color:var(--ink);}
+  .skills-block li::before{content:''; position:absolute; left:0; top:14px; width:5px; height:5px; background:var(--gold-deep); transform:rotate(45deg);}
 
-  /* dog-eared card corner, the shared signature card treatment */
-  .fold{position:relative; overflow:visible;}
-  .fold::after{content:''; position:absolute; top:0; right:0; width:0; height:0; border-style:solid; border-width:0 20px 20px 0; border-color:transparent var(--paper) transparent transparent; filter:drop-shadow(-2px 2px 2px rgba(27,41,38,0.08));}
-  section.alt .fold::after{border-color:transparent var(--white) transparent transparent;}
+  .fold{position:relative;}
 
   /* SERVICES */
-  .services-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;}
-  .service-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 24px; display:flex; flex-direction:column; gap:14px; transition:box-shadow .22s ease, transform .22s ease, border-color .22s ease;}
-  .service-card:hover{box-shadow:var(--shadow-md); transform:translateY(-4px); border-color:var(--teal);}
-  .service-icon{width:42px; height:42px; border-radius:8px; background:var(--teal-tint); display:flex; align-items:center; justify-content:center;}
-  .service-icon svg{width:20px; height:20px; stroke:var(--teal-deep); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;}
-  .service-card h3{font-size:1.06rem; font-weight:600;}
+  .services-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .service-card{background:var(--white); padding:32px 28px; display:flex; flex-direction:column; gap:15px; transition:background .25s ease;}
+  .service-card:hover{background:var(--emerald-tint);}
+  .service-icon{width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:1px solid var(--gold-deep);}
+  .service-icon svg{width:19px; height:19px; stroke:var(--emerald-deep); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;}
+  .service-card h3{font-size:1.08rem; font-weight:600;}
   .service-card p{color:var(--ink-soft); font-size:0.9rem; flex-grow:1;}
-  .price-tag{font-family:'IBM Plex Mono', monospace; font-size:1rem; font-weight:600; color:var(--teal-deep); border-top:1px solid var(--line); padding-top:14px;}
-  .price-tag em{font-style:normal; color:var(--ink-soft); font-weight:400; font-size:0.68rem; display:block; margin-top:4px; text-transform:uppercase; letter-spacing:0.05em;}
-  .price-note{margin-top:20px; font-size:0.86rem; color:var(--ink-soft); font-style:italic;}
+  .price-tag{font-family:'IBM Plex Mono', monospace; font-size:1.05rem; font-weight:600; color:var(--emerald-deep); border-top:1px solid var(--line); padding-top:16px;}
+  .price-tag em{font-style:normal; color:var(--ink-soft); font-weight:400; font-size:0.68rem; display:block; margin-top:5px; text-transform:uppercase; letter-spacing:0.05em;}
+  .price-note{margin-top:24px; font-size:0.87rem; color:var(--ink-soft); font-style:italic;}
 
   /* WORK SAMPLES */
-  .subhead{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal-deep); font-weight:600; margin:44px 0 18px; padding-bottom:8px; border-bottom:1px solid var(--line);}
+  .subhead{display:flex; align-items:center; gap:14px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--emerald-deep); font-weight:600; margin:52px 0 22px;}
   .subhead:first-of-type{margin-top:0;}
-  .samples-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; align-items:start;}
-  .ig-card{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; transition:box-shadow .22s ease, transform .22s ease, border-color .22s ease; background:var(--paper); position:relative; min-height:340px;}
-  .ig-card:hover{box-shadow:var(--shadow-md); transform:translateY(-4px); border-color:var(--wine);}
-  .ig-card iframe{display:block;}
-  .ig-fallback{
-    display:none; flex-direction:column; align-items:center; justify-content:center; gap:12px;
-    height:100%; min-height:340px; padding:24px; text-align:center;
-  }
-  .ig-card.show-fallback .ig-fallback{display:flex;}
-  .ig-card.show-fallback blockquote{display:none;}
-  .play-badge{width:46px; height:46px; border-radius:8px; background:var(--wine-tint); display:flex; align-items:center; justify-content:center;}
-  .play-badge svg{width:18px; height:18px; fill:var(--wine-deep);}
-  .ig-fallback p{font-size:0.82rem; color:var(--ink-soft);}
-  .ig-fallback a{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--teal-deep); font-weight:600; border-bottom:1px solid var(--teal);}
+  .subhead::after{content:''; flex:1; height:1px; background:var(--line);}
 
-  .docs-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
-  .doc-card{border:1px solid var(--line); border-radius:var(--radius); background:var(--white); padding:22px; display:flex; flex-direction:column; gap:12px; min-height:180px;}
-  section.alt .doc-card{background:var(--white);}
-  .doc-icon{width:38px; height:38px; border-radius:8px; background:var(--wine-tint); display:flex; align-items:center; justify-content:center;}
-  .doc-icon svg{width:17px; height:17px; stroke:var(--wine-deep); fill:none; stroke-width:1.7;}
-  .doc-card h4{font-size:0.98rem; font-weight:600; font-family:'Inter', sans-serif;}
-  .doc-card p{font-size:0.84rem; color:var(--ink-soft); flex-grow:1;}
-  .doc-placeholder{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--wine-deep); background:var(--wine-tint); padding:6px 10px; border-radius:3px; align-self:flex-start;}
-  .doc-card--embed{min-height:auto; padding:18px;}
-  .doc-embed{border:1px solid var(--line); border-radius:3px; overflow:hidden; background:var(--paper);}
-  .doc-embed iframe{width:100%; height:340px; border:none; display:block;}
+  .samples-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:26px; align-items:start;}
+  .ig-frame{position:relative; border:1px solid var(--emerald-deep); padding:9px; transition:transform .3s ease, border-color .3s ease;}
+  .ig-frame:hover{transform:translateY(-4px);}
+  .ig-frame:hover .corner{border-color:var(--gold-deep);}
+  .corner{position:absolute; width:14px; height:14px; border:0 solid var(--gold); transition:border-color .3s ease;}
+  .corner.tl{top:-1px; left:-1px; border-top-width:2px; border-left-width:2px;}
+  .corner.br{bottom:-1px; right:-1px; border-bottom-width:2px; border-right-width:2px;}
+  .ig-card{position:relative; overflow:hidden; background:linear-gradient(155deg, var(--emerald-deep), var(--ink) 130%); aspect-ratio:9/14; min-height:300px;}
+  .ig-card iframe{position:absolute; inset:0; width:100%; height:100%; border:none;}
+  .ig-fallback{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
+    height:100%; padding:24px; text-align:center; position:relative;
+  }
+  .ig-fallback::before{content:''; position:absolute; inset:0; background:
+      repeating-linear-gradient(115deg, rgba(176,141,71,0.05) 0 1px, transparent 1px 34px);}
+  .ig-card.has-embed .ig-fallback{display:none;}
+  .play-ring{width:52px; height:52px; border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; position:relative; z-index:1;}
+  .play-ring svg{width:16px; height:16px; fill:var(--gold);}
+  .ig-fallback p{font-size:0.78rem; color:rgba(247,243,234,0.62); position:relative; z-index:1; max-width:22ch;}
+  .ig-fallback a.watch{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); font-weight:600; border-bottom:1px solid var(--gold); padding-bottom:2px; position:relative; z-index:1;}
+  .ig-caption{display:flex; align-items:center; justify-content:space-between; padding:12px 3px 3px;}
+  .ig-caption .num{font-family:'IBM Plex Mono', monospace; font-size:0.64rem; letter-spacing:0.1em; color:var(--ink-soft);}
+  .ig-caption a{font-family:'IBM Plex Mono', monospace; font-size:0.64rem; letter-spacing:0.06em; color:var(--emerald-deep); font-weight:600;}
+  .ig-caption a:hover{color:var(--gold-deep);}
+
+  .docs-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
   .docs-grid--embeds{grid-template-columns:1fr 1fr 0.8fr;}
+  .doc-card{background:var(--white); padding:26px; display:flex; flex-direction:column; gap:13px; min-height:180px;}
+  .doc-icon{width:36px; height:36px; display:flex; align-items:center; justify-content:center; border:1px solid var(--wine);}
+  .doc-icon svg{width:16px; height:16px; stroke:var(--wine-deep); fill:none; stroke-width:1.6;}
+  .doc-card h4{font-size:0.98rem; font-weight:600; font-family:'Fraunces', serif;}
+  .doc-card p{font-size:0.85rem; color:var(--ink-soft); flex-grow:1;}
+  .doc-placeholder{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--wine-deep); background:var(--wine-tint); padding:7px 11px; align-self:flex-start;}
+  .doc-card--embed{gap:12px;}
+  .doc-embed{border:1px solid var(--line);}
+  .doc-embed iframe{width:100%; height:340px; border:none; display:block;}
   @media (max-width: 900px){ .docs-grid--embeds{grid-template-columns:1fr 1fr;} }
   @media (max-width: 560px){ .docs-grid--embeds{grid-template-columns:1fr;} .doc-embed iframe{height:280px;} }
 
   /* CONTACT */
-  .contact-wrap{display:grid; grid-template-columns:1fr 0.9fr; gap:56px; align-items:stretch;}
+  .contact-wrap{display:grid; grid-template-columns:1fr 0.9fr; gap:60px; align-items:stretch;}
   .contact-list{display:flex; flex-direction:column; gap:0;}
-  .contact-item{display:flex; align-items:center; gap:18px; padding:18px 0; border-bottom:1px solid var(--line);}
-  .contact-icon{width:44px; height:44px; border-radius:8px; background:var(--teal-tint); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
-  .contact-icon svg{width:19px; height:19px; stroke:var(--teal-deep); fill:none; stroke-width:1.7;}
-  .contact-item .label{font-family:'IBM Plex Mono', monospace; font-size:0.64rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-soft); margin-bottom:3px;}
+  .contact-item{display:flex; align-items:center; gap:18px; padding:19px 0; border-bottom:1px solid var(--line);}
+  .contact-icon{width:42px; height:42px; display:flex; align-items:center; justify-content:center; border:1px solid var(--emerald-deep); flex-shrink:0;}
+  .contact-icon svg{width:18px; height:18px; stroke:var(--emerald-deep); fill:none; stroke-width:1.6;}
+  .contact-item .label{font-family:'IBM Plex Mono', monospace; font-size:0.62rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin-bottom:4px;}
   .contact-item .value{font-size:1rem; font-weight:500;}
   .contact-item .value.placeholder{color:var(--ink-soft); font-style:italic; font-weight:400;}
-  .contact-cta{background:var(--teal-deep); color:var(--white); border-radius:var(--radius); padding:40px 34px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden;}
-  .contact-cta::before{content:''; position:absolute; bottom:-50px; right:-50px; width:180px; height:180px; border-radius:16px; background:rgba(255,255,255,0.06); transform:rotate(18deg);}
+  .contact-cta{background:var(--emerald-deep); color:var(--white); padding:44px 36px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; border:1px solid var(--gold-deep);}
+  .contact-cta::before{content:''; position:absolute; top:-1px; left:-1px; right:-1px; height:2px; background:linear-gradient(90deg, var(--gold), transparent 70%);}
   .contact-cta > *{position:relative; z-index:1;}
-  .contact-cta h3{color:var(--white); font-size:1.46rem; margin-bottom:12px; line-height:1.25;}
-  .contact-cta p{color:rgba(255,255,255,0.82); margin-bottom:24px; font-size:0.95rem;}
+  .contact-cta h3{color:var(--white); font-size:1.5rem; margin-bottom:13px; line-height:1.25;}
+  .contact-cta p{color:rgba(247,243,234,0.75); margin-bottom:26px; font-size:0.95rem;}
 
-  footer{padding:28px 0; border-top:1px solid var(--line); text-align:center;}
-  footer p{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--ink-soft); letter-spacing:0.04em;}
+  footer{padding:32px 0; border-top:1px solid var(--line); text-align:center;}
+  footer p{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--ink-soft); letter-spacing:0.05em;}
 
-  .reveal{opacity:0; transform:translateY(14px); transition:opacity .55s ease, transform .55s ease;}
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
   @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;} }
 
   @media (max-width: 900px){
     nav{display:none;}
     .burger{display:flex;}
-    .hero-grid, .about-grid, .contact-wrap{grid-template-columns:1fr; gap:36px;}
+    .hero-grid, .about-grid, .contact-wrap{grid-template-columns:1fr; gap:38px;}
     .services-grid{grid-template-columns:repeat(2, 1fr);}
     .samples-grid{grid-template-columns:repeat(2, 1fr);}
     .docs-grid{grid-template-columns:1fr 1fr;}
     .skills-grid{grid-template-columns:1fr;}
-    section{padding:48px 0;}
-    .hero{padding:36px 0 32px;}
+    section{padding:52px 0;}
+    .hero{padding:40px 0 34px;}
+    .hero-watermark{display:none;}
   }
   @media (max-width: 560px){
     .services-grid{grid-template-columns:1fr;}
@@ -222,8 +238,9 @@
     .docs-grid{grid-template-columns:1fr;}
     .hero-ctas{flex-direction:column; align-items:stretch;}
     .btn{justify-content:center;}
-    .brand-text{font-size:0.92rem;}
+    .brand-text{font-size:0.94rem;}
     .stat-row{flex-direction:column;}
+    .stat-chip + .stat-chip{border-left:none; border-top:1px solid var(--line);}
   }
 </style>
 </head>
@@ -232,7 +249,12 @@
 <header>
   <div class="nav-inner">
     <div class="brand">
-      <div class="badge">RD</div>
+      <svg class="mark-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="32,3 58,17 58,47 32,61 6,47 6,17" fill="var(--emerald-deep)" stroke="var(--gold)" stroke-width="1.1"/>
+        <polygon points="32,9 52,20.5 52,43.5 32,55 12,43.5 12,20.5" fill="none" stroke="var(--gold)" stroke-width="0.5" opacity="0.5"/>
+        <text x="23" y="40" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="25" fill="#f7f3ea" text-anchor="middle">R</text>
+        <text x="41" y="40" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="25" fill="#d4b876" text-anchor="middle">D</text>
+      </svg>
       <div class="brand-text">Rahmat Dawood<small>Medical Virtual Assistant</small></div>
     </div>
     <nav>
@@ -255,6 +277,11 @@
 
 <!-- HERO -->
 <section id="top" class="hero">
+  <svg class="hero-watermark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="32,3 58,17 58,47 32,61 6,47 6,17" fill="none" stroke="var(--emerald-deep)" stroke-width="0.6"/>
+    <text x="23" y="40" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="25" fill="var(--emerald-deep)" text-anchor="middle">R</text>
+    <text x="41" y="40" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="25" fill="var(--gold-deep)" text-anchor="middle">D</text>
+  </svg>
   <div class="wrap hero-grid">
     <div>
       <div class="stamp">Available for new clients</div>
@@ -265,50 +292,41 @@
       <p class="role">Medical Virtual Assistant</p>
       <p class="lede">I handle the administrative backbone of patient care: intake, scheduling, documentation, and records, so your clinical team can stay focused on patients, not paperwork.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn btn-teal">Work With Me →</a>
-        <a href="#work" class="btn btn-outline">View Work Samples</a>
+        <a href="#contact" class="btn btn-emerald">Work With Me →</a>
+        <a href="#work" class="btn btn-gold">View Work Samples</a>
       </div>
     </div>
 
     <div>
       <div class="card-stack">
         <svg class="chart-card" viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
-          <!-- back card, offset for a stacked-folder feel -->
-          <rect x="24" y="18" width="230" height="330" rx="6" fill="var(--paper)" stroke="var(--line)" transform="rotate(4 139 183)"/>
-          <!-- front card -->
+          <rect x="24" y="18" width="230" height="330" fill="var(--paper)" stroke="var(--line)" transform="rotate(4 139 183)"/>
           <g transform="rotate(-3 130 175)">
-            <rect x="10" y="10" width="230" height="330" rx="6" fill="#ffffff" stroke="var(--line)" stroke-width="1.4"/>
-            <rect x="10" y="10" width="230" height="46" rx="6" fill="var(--teal-deep)"/>
-            <rect x="10" y="42" width="230" height="14" fill="var(--teal-deep)"/>
-            <text x="28" y="38" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" fill="#ffffff">PATIENT INTAKE</text>
-            <circle cx="216" cy="33" r="4" fill="var(--wine)"/>
-            <!-- ruled lines mimicking a filled form -->
+            <rect x="10" y="10" width="230" height="330" fill="#ffffff" stroke="var(--gold-deep)" stroke-width="1"/>
+            <rect x="10" y="10" width="230" height="46" fill="var(--emerald-deep)"/>
+            <text x="28" y="38" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" fill="#f7f3ea">PATIENT INTAKE</text>
+            <rect x="212" y="28" width="8" height="8" fill="var(--gold)" transform="rotate(45 216 32)"/>
             <line x1="28" y1="82" x2="222" y2="82" stroke="var(--line)" stroke-width="2"/>
-            <rect x="28" y="72" width="70" height="8" fill="var(--teal-tint)"/>
+            <rect x="28" y="72" width="70" height="8" fill="var(--emerald-tint)"/>
             <line x1="28" y1="112" x2="222" y2="112" stroke="var(--line)" stroke-width="2"/>
-            <rect x="28" y="102" width="110" height="8" fill="var(--teal-tint)"/>
+            <rect x="28" y="102" width="110" height="8" fill="var(--emerald-tint)"/>
             <line x1="28" y1="142" x2="222" y2="142" stroke="var(--line)" stroke-width="2"/>
-            <rect x="28" y="132" width="90" height="8" fill="var(--wine-tint)"/>
-            <!-- checklist rows, squares instead of circles -->
-            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)">
-              <rect x="28" y="172" width="12" height="12" rx="2" fill="var(--teal)"/>
+            <rect x="28" y="132" width="90" height="8" fill="var(--gold-tint)"/>
+            <g font-family="Manrope, sans-serif" font-size="11" fill="var(--ink-soft)">
+              <rect x="28" y="172" width="12" height="12" fill="var(--emerald)"/>
               <path d="M31 178l2.4 2.4L37 175" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               <text x="48" y="182">Insurance verified</text>
-
-              <rect x="28" y="198" width="12" height="12" rx="2" fill="var(--teal)"/>
+              <rect x="28" y="198" width="12" height="12" fill="var(--emerald)"/>
               <path d="M31 204l2.4 2.4L37 201" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               <text x="48" y="208">Records updated</text>
-
-              <rect x="28" y="224" width="12" height="12" rx="2" fill="none" stroke="var(--line)" stroke-width="1.6"/>
+              <rect x="28" y="224" width="12" height="12" fill="none" stroke="var(--line)" stroke-width="1.6"/>
               <text x="48" y="234">Follow-up scheduled</text>
             </g>
-            <!-- footer status strip -->
-            <rect x="10" y="292" width="230" height="48" rx="6" fill="var(--paper)"/>
+            <rect x="10" y="292" width="230" height="48" fill="var(--paper)"/>
             <text x="28" y="313" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1.4" fill="var(--ink-soft)">STATUS</text>
-            <text x="28" y="329" font-family="Fraunces, serif" font-size="14" font-weight="600" fill="var(--teal-deep)">Ready for review</text>
+            <text x="28" y="329" font-family="Fraunces, serif" font-size="14" font-weight="600" fill="var(--emerald-deep)">Ready for review</text>
           </g>
-          <!-- paperclip accent, top-left -->
-          <path d="M52 4 v34 a10 10 0 0 1-20 0 v-26" fill="none" stroke="var(--wine)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M52 4 v34 a10 10 0 0 1-20 0 v-26" fill="none" stroke="var(--gold)" stroke-width="4" stroke-linecap="round"/>
         </svg>
       </div>
       <div class="stat-row">
@@ -319,6 +337,8 @@
     </div>
   </div>
 </section>
+
+<hr class="rule">
 
 <!-- ABOUT -->
 <section id="about" class="reveal">
@@ -397,43 +417,43 @@
 <section id="services" class="alt reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow wine"><span>Services &amp; Pricing</span></div>
+      <div class="eyebrow"><span>Services &amp; Pricing</span></div>
       <h2>Support built around <span class="mark mark--teal">your workflow</span></h2>
       <p>Starting rates below, easy to adjust to your scope, hours, and volume. Reach out for a custom quote.</p>
     </div>
 
     <div class="services-grid">
-      <div class="service-card fold">
+      <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 3v3M16 3v3"/><circle cx="8.5" cy="14" r="1"/><circle cx="12" cy="14" r="1"/><circle cx="15.5" cy="14" r="1"/></svg></div>
         <h3>Patient Intake &amp; Scheduling</h3>
         <p>New patient onboarding, appointment booking, calendar management, and reminder follow-ups.</p>
         <div class="price-tag">$10 / hr<em>or $180 per week, part-time</em></div>
       </div>
-      <div class="service-card fold">
+      <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M15 3v5h5M9 13h6M9 17h6M9 9h2"/></svg></div>
         <h3>Documentation &amp; SOAP Notes</h3>
         <p>Accurate SOAP note documentation and clinical documentation support, formatted to your practice's standard.</p>
         <div class="price-tag">$12 / hr<em>or $3 per note</em></div>
       </div>
-      <div class="service-card fold">
+      <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5V12c0 1.5 3.5 2.8 8 2.8s8-1.3 8-2.8V5.5M4 12v6.5c0 1.5 3.5 2.8 8 2.8s8-1.3 8-2.8V12"/></svg></div>
         <h3>EMR / EHR Data Entry</h3>
         <p>Patient registration, data entry, and records management inside OpenEMR or your preferred EHR system.</p>
         <div class="price-tag">$9 / hr<em>volume discounts available</em></div>
       </div>
-      <div class="service-card fold">
+      <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 3.5v5.2C20 17 16.6 20.4 12 21.5 7.4 20.4 4 17 4 11.7V6.5L12 3z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Insurance &amp; Coding Support</h3>
         <p>HMO/insurance verification and CPT / HCPCS Level II code lookup to support accurate billing.</p>
         <div class="price-tag">$11 / hr<em>or $2 per claim checked</em></div>
       </div>
-      <div class="service-card fold">
+      <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1H9l-4 4v-4H4a1 1 0 01-1-1V6a1 1 0 011-1z"/><rect x="10" y="9" width="4" height="3" rx="0.5"/><path d="M11 9V8a1 1 0 012 0v1"/></svg></div>
         <h3>HIPAA-Compliant Communication</h3>
         <p>Professional, empathetic patient-facing communication that keeps PHI handled correctly, every time.</p>
         <div class="price-tag">$10 / hr<em>email, chat &amp; phone support</em></div>
       </div>
-      <div class="service-card fold">
+      <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18"/></svg></div>
         <h3>General Admin Support</h3>
         <p>Ongoing administrative support across intake, documentation, and records, tailored to your practice.</p>
@@ -455,33 +475,61 @@
 
     <div class="subhead">Video Reels</div>
     <div class="samples-grid" id="igGrid">
-      <div class="ig-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZhdxcfIxst/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
-        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      <div class="ig-frame">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <div class="ig-card">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZhdxcfIxst/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+          <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+        <div class="ig-caption"><span class="num">CLIP 01</span><a href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
-      <div class="ig-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZzjMiLIohT/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
-        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      <div class="ig-frame">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <div class="ig-card">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZzjMiLIohT/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+          <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+        <div class="ig-caption"><span class="num">CLIP 02</span><a href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
-      <div class="ig-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaFKLYqI_CY/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
-        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      <div class="ig-frame">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <div class="ig-card">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaFKLYqI_CY/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+          <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+        <div class="ig-caption"><span class="num">CLIP 03</span><a href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
-      <div class="ig-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaahItjoAwj/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
-        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      <div class="ig-frame">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <div class="ig-card">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaahItjoAwj/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+          <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+        <div class="ig-caption"><span class="num">CLIP 04</span><a href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
-      <div class="ig-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DasrA3NIrjl/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
-        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      <div class="ig-frame">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <div class="ig-card">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DasrA3NIrjl/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+          <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+        <div class="ig-caption"><span class="num">CLIP 05</span><a href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
-      <div class="ig-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DasrOQfo0ep/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
-        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      <div class="ig-frame">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <div class="ig-card">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DasrOQfo0ep/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+          <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+        <div class="ig-caption"><span class="num">CLIP 06</span><a href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
-      <div class="ig-card">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Das04QaIQvh/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/Das04QaIQvh/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
-        <div class="ig-fallback"><div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><p>This reel needs Instagram's own player, which some browsers and preview windows block.</p><a href="https://www.instagram.com/reel/Das04QaIQvh/" target="_blank" rel="noopener">Watch on Instagram →</a></div>
+      <div class="ig-frame">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <div class="ig-card">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Das04QaIQvh/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/Das04QaIQvh/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
+          <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/Das04QaIQvh/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+        <div class="ig-caption"><span class="num">CLIP 07</span><a href="https://www.instagram.com/reel/Das04QaIQvh/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
     </div>
 
@@ -515,7 +563,7 @@
 <section id="contact" class="alt reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow wine"><span>Contact Me</span></div>
+      <div class="eyebrow"><span>Contact Me</span></div>
       <h2>Let's keep your <span class="mark mark--teal">front office</span> running smoothly.</h2>
       <p>Reach out with your scope of work and I'll follow up within one business day.</p>
     </div>
@@ -543,7 +591,7 @@
       <div class="contact-cta">
         <h3>Ready to hand off your admin work?</h3>
         <p>Tell me what your practice needs support with: intake, documentation, records, or all three, and I'll put together a plan.</p>
-        <a href="mailto:youremail@example.com" class="btn btn-wine">Send Me a Message →</a>
+        <a href="mailto:youremail@example.com" class="btn btn-emerald">Send Me a Message →</a>
       </div>
     </div>
   </div>
@@ -570,10 +618,6 @@
     revealEls.forEach(el => el.classList.add('in'));
   }
 
-  /* Instagram embeds: retry processing a few times (the script often
-     loads after these blockquotes exist), then fall back to a clean
-     "watch on Instagram" card for any that never turn into an iframe
-     — so a card is never left blank. */
   function processIG(){
     if(window.instgrm && window.instgrm.Embeds){
       window.instgrm.Embeds.process();
@@ -589,8 +633,8 @@
 
   setTimeout(() => {
     document.querySelectorAll('.ig-card').forEach(card => {
-      if(!card.querySelector('iframe')){
-        card.classList.add('show-fallback');
+      if(card.querySelector('iframe')){
+        card.classList.add('has-embed');
       }
     });
   }, 6000);
