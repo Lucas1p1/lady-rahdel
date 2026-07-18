@@ -6,40 +6,44 @@
 <title>Rahmat Adeola Dawood, Medical Virtual Assistant</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f7f3ea;
-    --paper-deep:#efe8d6;
-    --white:#ffffff;
-    --ink:#14181a;
-    --ink-soft:#5c635f;
-    --emerald:#123f35;
-    --emerald-deep:#0a2b24;
-    --emerald-tint:#e4ece8;
-    --gold:#b08d47;
-    --gold-deep:#8f6f34;
-    --gold-tint:#f3ead2;
-    --wine:#6d2f37;
-    --wine-deep:#4c2027;
-    --wine-tint:#f1e3e2;
-    --line:#ded6c0;
-    --line-soft:#e8e2cf;
-    --radius:2px;
-    --shadow-sm:0 1px 3px rgba(10,43,36,0.08);
-    --shadow-md:0 22px 44px rgba(10,43,36,0.16);
+    --paper:#ffffff;
+    --paper-deep:#f4f6f6;
+    --card:#ffffff;
+    --ink:#161e1c;
+    --ink-soft:#5f6b67;
+    --navy:#16324f;
+    --navy-deep:#0d2337;
+    --navy-tint:#eef2f6;
+    --teal:#0e7c66;
+    --teal-deep:#0a5c4c;
+    --teal-tint:#eaf4f1;
+    --coral:#c4573e;
+    --coral-deep:#9e4230;
+    --coral-tint:#faece7;
+    --mustard:#c99a3e;
+    --mustard-deep:#a47a2a;
+    --mustard-tint:#faf2df;
+    --line:#e2e5e4;
+    --line-soft:#ecefee;
+    --r-sm:6px;
+    --r-md:10px;
+    --r-lg:16px;
+    --shadow-sm:0 2px 10px rgba(13,35,55,0.05);
+    --shadow-md:0 18px 40px rgba(13,35,55,0.10);
+    --shadow-lg:0 30px 60px rgba(13,35,55,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:
-      radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
-      var(--white);
-    background-size:3px 3px;
+    background:var(--paper);
     color:var(--ink);
-    font-family:'Manrope', sans-serif;
+    font-family:'Inter', sans-serif;
     font-weight:400;
-    line-height:1.65;
+    line-height:1.7;
+    letter-spacing:-0.006em;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
   }
@@ -47,190 +51,201 @@
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
   .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
-  ::selection{background:var(--emerald); color:#fff;}
+  ::selection{background:var(--navy-deep); color:#fff;}
 
-  .eyebrow{display:inline-flex; align-items:center; gap:10px; margin-bottom:18px;}
-  .eyebrow::before{content:''; width:20px; height:1px; background:var(--gold);}
+  .eyebrow{display:inline-flex; align-items:center; gap:9px; margin-bottom:16px;}
+  .eyebrow i{width:9px; height:9px; border-radius:2px; flex-shrink:0;}
   .eyebrow span{
-    font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.18em;
-    font-size:0.68rem; color:var(--gold-deep); font-weight:600;
+    font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.16em;
+    font-size:0.68rem; font-weight:600; color:var(--ink-soft);
   }
+  .eyebrow.c-teal i{background:var(--teal);} .eyebrow.c-teal span{color:var(--teal-deep);}
+  .eyebrow.c-coral i{background:var(--coral);} .eyebrow.c-coral span{color:var(--coral-deep);}
+  .eyebrow.c-mustard i{background:var(--mustard);} .eyebrow.c-mustard span{color:var(--mustard-deep);}
+  .eyebrow.c-navy i{background:var(--navy);} .eyebrow.c-navy span{color:var(--navy-deep);}
 
-  .mark{background-repeat:no-repeat; background-position:0 88%; background-size:100% 0.38em; padding:0 .05em;}
-  .mark--teal{background-image:linear-gradient(var(--emerald-tint), var(--emerald-tint));}
-  .mark--wine{background-image:linear-gradient(var(--gold-tint), var(--gold-tint));}
-
-  .rule{border:none; border-top:1px solid var(--line); position:relative; margin:0;}
-  .rule-orn{display:flex; align-items:center; gap:14px; margin:0;}
-  .rule-orn::before,.rule-orn::after{content:''; flex:1; height:1px; background:var(--line);}
-  .rule-orn i{width:6px; height:6px; background:var(--gold); transform:rotate(45deg); display:block;}
+  .mark{background-repeat:no-repeat; background-position:0 88%; background-size:100% 0.4em; padding:0 .06em;}
+  .mark--teal{background-image:linear-gradient(var(--teal-tint), var(--teal-tint));}
+  .mark--coral{background-image:linear-gradient(var(--coral-tint), var(--coral-tint));}
+  .mark--mustard{background-image:linear-gradient(var(--mustard-tint), var(--mustard-tint));}
 
   /* NAV */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(247,243,234,0.92);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 32px; max-width:1180px; margin:0 auto;
-  }
+  header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.86); backdrop-filter:blur(14px);}
+  .scroll-track{height:3px; width:100%; background:var(--line-soft);}
+  .scroll-fill{height:100%; width:0%; background:linear-gradient(90deg, var(--navy), var(--teal) 45%, var(--coral) 75%, var(--mustard)); transition:width .08s linear; position:relative;}
+  .scroll-fill::after{content:''; position:absolute; right:-3px; top:50%; transform:translateY(-50%); width:7px; height:7px; border-radius:50%; background:var(--mustard); box-shadow:0 0 0 3px rgba(201,154,62,0.25);}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:15px 32px; max-width:1180px; margin:0 auto; border-bottom:1px solid var(--line-soft);}
   .brand{display:flex; align-items:center; gap:13px;}
-  .mark-icon{width:42px; height:42px; flex-shrink:0;}
-  .brand-text{font-family:'Fraunces', serif; font-weight:600; font-size:1.06rem; line-height:1.2; letter-spacing:0.01em;}
-  .brand-text small{display:block; font-family:'IBM Plex Mono', monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.13em; color:var(--gold-deep); font-weight:500; margin-top:3px;}
-  nav ul{list-style:none; display:flex; gap:34px;}
-  nav a{position:relative; font-family:'Manrope', sans-serif; font-size:0.9rem; font-weight:500; color:var(--ink); padding:6px 1px;}
-  nav a::after{content:''; position:absolute; left:50%; right:50%; bottom:0; height:1px; background:var(--gold-deep); transition:left .25s ease, right .25s ease;}
-  nav a:hover::after{left:0; right:0;}
-  nav a:hover{color:var(--emerald-deep);}
-  .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
-  .burger span{width:22px; height:1px; background:var(--ink); display:block;}
-  .mobile-menu{display:none; flex-direction:column; padding:0 32px 20px; gap:0; border-top:1px solid var(--line);}
-  .mobile-menu a{font-family:'Manrope', sans-serif; font-size:0.95rem; font-weight:500; padding:14px 0; border-bottom:1px solid var(--line-soft); color:var(--ink);}
+  .mark-icon{width:40px; height:40px; flex-shrink:0;}
+  .brand-text{font-family:'Fraunces', serif; font-weight:600; font-size:1.04rem; line-height:1.2;}
+  .brand-text small{display:block; font-family:'IBM Plex Mono', monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-soft); font-weight:500; margin-top:3px;}
+  nav ul{list-style:none; display:flex; gap:6px;}
+  nav a{display:flex; align-items:center; gap:8px; font-family:'Inter', sans-serif; font-size:0.87rem; font-weight:600; color:var(--ink-soft); padding:9px 13px; border-radius:20px; transition:background .2s ease, color .2s ease;}
+  nav a i{width:6px; height:6px; border-radius:50%; flex-shrink:0; opacity:0.55; transition:opacity .2s ease;}
+  nav a[data-c="teal"] i{background:var(--teal);} nav a[data-c="coral"] i{background:var(--coral);} nav a[data-c="mustard"] i{background:var(--mustard);} nav a[data-c="navy"] i{background:var(--navy);}
+  nav a:hover, nav a.active{color:var(--ink); background:var(--card); box-shadow:var(--shadow-sm);}
+  nav a:hover i, nav a.active i{opacity:1;}
+  .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px;}
+  .burger span{width:22px; height:2px; border-radius:2px; background:var(--ink); display:block;}
+  .mobile-menu{display:none; flex-direction:column; padding:6px 32px 18px; gap:0;}
+  .mobile-menu a{display:flex; align-items:center; gap:10px; font-family:'Inter', sans-serif; font-size:0.96rem; font-weight:600; padding:14px 4px; border-bottom:1px solid var(--line-soft); color:var(--ink);}
+  .mobile-menu a i{width:7px; height:7px; border-radius:50%;}
+  .mobile-menu a[data-c="teal"] i{background:var(--teal);} .mobile-menu a[data-c="coral"] i{background:var(--coral);} .mobile-menu a[data-c="mustard"] i{background:var(--mustard);} .mobile-menu a[data-c="navy"] i{background:var(--navy);}
   .mobile-menu.open{display:flex;}
 
   /* buttons */
-  .btn{display:inline-flex; align-items:center; gap:10px; font-family:'Manrope', sans-serif; font-size:0.86rem; font-weight:600; letter-spacing:0.01em; padding:15px 30px; border-radius:var(--radius); border:1px solid transparent; cursor:pointer; transition:all .25s ease; position:relative; overflow:hidden; z-index:1;}
-  .btn:hover{transform:translateY(-1px);}
-  .btn-emerald{background:var(--emerald-deep); color:var(--white); box-shadow:var(--shadow-sm);}
-  .btn-emerald:hover{background:var(--emerald); box-shadow:var(--shadow-md);}
-  .btn-gold{background:transparent; color:var(--emerald-deep); border-color:var(--gold-deep);}
-  .btn-gold::before{content:''; position:absolute; inset:0; background:var(--gold-deep); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; z-index:-1;}
-  .btn-gold:hover{color:var(--white);}
-  .btn-gold:hover::before{transform:scaleX(1);}
-  .btn-outline{background:transparent; color:var(--emerald-deep); border-color:var(--emerald);}
-  .btn-outline:hover{background:var(--emerald-tint);}
+  .btn{display:inline-flex; align-items:center; gap:10px; font-family:'Inter', sans-serif; font-size:0.87rem; font-weight:700; letter-spacing:0.005em; padding:15px 28px; border-radius:30px; border:1.5px solid transparent; cursor:pointer; transition:all .22s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-navy{background:var(--navy-deep); color:#fff; box-shadow:var(--shadow-sm);}
+  .btn-navy:hover{background:var(--navy); box-shadow:var(--shadow-md);}
+  .btn-outline{background:var(--card); color:var(--navy-deep); border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--navy-deep); box-shadow:var(--shadow-sm);}
 
   /* HERO */
-  .hero{padding:76px 0 68px; position:relative; overflow:hidden;}
-  .hero::before{content:''; position:absolute; top:-180px; right:-220px; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle, var(--emerald-tint) 0%, transparent 68%); z-index:-1;}
-  .hero-watermark{position:absolute; top:50%; left:-60px; width:640px; height:640px; transform:translateY(-50%); opacity:0.045; z-index:-1; pointer-events:none;}
-  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:center;}
-  .stamp{display:inline-flex; align-items:center; gap:9px; font-family:'IBM Plex Mono', monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--emerald-deep); border:1px solid var(--gold); padding:8px 15px 8px 12px; margin-bottom:26px;}
-  .stamp::before{content:''; width:6px; height:6px; background:var(--gold-deep); transform:rotate(45deg);}
-  .hero h1{font-size:clamp(2.4rem, 4.6vw, 3.75rem); line-height:1.08; margin-bottom:22px; font-weight:600;}
-  .hero .role{font-family:'Fraunces', serif; font-style:italic; font-weight:500; color:var(--emerald-deep); font-size:1.3rem; margin-bottom:22px;}
-  .hero p.lede{max-width:48ch; color:var(--ink-soft); font-size:1.06rem; margin-bottom:32px;}
+  .hero{padding:64px 0 72px; position:relative; overflow:hidden;}
+  .hero::before{content:''; position:absolute; top:-200px; right:-240px; width:620px; height:620px; border-radius:50%; background:radial-gradient(circle, var(--teal-tint) 0%, transparent 68%); z-index:-1;}
+  .hero::after{content:''; position:absolute; bottom:-160px; left:-180px; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle, var(--mustard-tint) 0%, transparent 70%); z-index:-1;}
+  .hero-grid{display:grid; grid-template-columns:1.08fr 0.92fr; gap:60px; align-items:center;}
+  .stamp{display:inline-flex; align-items:center; gap:9px; font-family:'IBM Plex Mono', monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--teal-deep); background:var(--teal-tint); border-radius:20px; padding:8px 16px; margin-bottom:24px;}
+  .stamp::before{content:''; width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 3px rgba(14,124,102,0.18);}
+  .hero h1{font-size:clamp(2.35rem, 4.4vw, 3.6rem); line-height:1.1; margin-bottom:20px; font-weight:600;}
+  .hero .role{font-family:'Fraunces', serif; font-style:italic; font-weight:500; color:var(--navy-deep); font-size:1.28rem; margin-bottom:20px;}
+  .hero p.lede{max-width:48ch; color:var(--ink-soft); font-size:1.05rem; margin-bottom:32px;}
   .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
 
-  .card-stack{position:relative; width:100%; max-width:300px; margin:0 auto;}
-  .chart-card{width:100%; display:block; filter:drop-shadow(0 30px 40px rgba(10,43,36,0.18));}
-  .stat-row{display:flex; gap:0; width:100%; max-width:340px; margin:30px auto 0; border:1px solid var(--line);}
-  .stat-chip{flex:1; text-align:center; padding:18px 8px; background:var(--paper);}
-  .stat-chip + .stat-chip{border-left:1px solid var(--line);}
-  .stat-chip b{display:block; font-family:'Fraunces', serif; font-size:1.4rem; color:var(--emerald-deep); font-weight:600; line-height:1.1;}
-  .stat-chip span{font-family:'IBM Plex Mono', monospace; font-size:0.58rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:7px;}
+  .chart-wrap{position:relative; width:100%; max-width:320px; margin:0 auto;}
+  .chart-card{width:100%; display:block; filter:drop-shadow(0 26px 44px rgba(13,35,55,0.20));}
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; width:100%; max-width:360px; margin:28px auto 0;}
+  .stat-chip{text-align:center; padding:16px 6px; background:var(--card); border-radius:var(--r-md); box-shadow:var(--shadow-sm); border:1px solid var(--line-soft);}
+  .stat-chip b{display:block; font-family:'Fraunces', serif; font-size:1.35rem; color:var(--navy-deep); font-weight:600; line-height:1.1;}
+  .stat-chip span{font-family:'IBM Plex Mono', monospace; font-size:0.56rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.03em; display:block; margin-top:6px;}
 
-  section{padding:76px 0;}
-  section.alt{background:var(--paper);}
+  section{padding:80px 0;}
+  section.alt{background:var(--paper-deep);}
   .section-head{max-width:62ch; margin-bottom:44px;}
-  .section-head h2{font-size:clamp(1.9rem, 3.1vw, 2.55rem); margin-bottom:16px; line-height:1.16;}
-  .section-head p{color:var(--ink-soft); font-size:1.03rem;}
+  .section-head h2{font-size:clamp(1.85rem, 3vw, 2.5rem); margin-bottom:16px; line-height:1.16;}
+  .section-head p{color:var(--ink-soft); font-size:1.02rem;}
 
   /* ABOUT */
-  .about-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:64px; align-items:start;}
-  .about-copy p{color:var(--ink-soft); margin-bottom:17px; font-size:1.03rem;}
-  .pull-line{font-family:'Fraunces', serif; font-style:italic; font-size:1.2rem; color:var(--emerald-deep); border-left:1px solid var(--gold-deep); padding-left:22px; margin:26px 0; line-height:1.55;}
-  .skills-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 30px;}
-  .skills-block{margin-bottom:26px;}
-  .skills-block h3{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--emerald-deep); margin-bottom:13px; font-weight:600; padding-bottom:8px; border-bottom:1px solid var(--line);}
-  .skills-block ul{list-style:none;}
-  .skills-block li{position:relative; padding:6px 0 6px 20px; font-size:0.9rem; color:var(--ink);}
-  .skills-block li::before{content:''; position:absolute; left:0; top:14px; width:5px; height:5px; background:var(--gold-deep); transform:rotate(45deg);}
+  .about-grid{display:grid; grid-template-columns:0.92fr 1.08fr; gap:56px; align-items:start;}
+  .about-copy p{color:var(--ink-soft); margin-bottom:16px; font-size:1.02rem;}
+  .pull-line{font-family:'Fraunces', serif; font-style:italic; font-size:1.16rem; color:var(--navy-deep); background:var(--paper-deep); border-radius:var(--r-md); border-left:4px solid var(--teal); padding:20px 24px; margin:24px 0; line-height:1.55;}
 
-  .fold{position:relative;}
+  .skills-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .skill-card{background:var(--card); border-radius:var(--r-md); padding:20px 22px 18px; box-shadow:var(--shadow-sm); border:1px solid var(--line-soft); border-top:3px solid var(--line);}
+  .skill-card.c-teal{border-top-color:var(--teal);}
+  .skill-card.c-coral{border-top-color:var(--coral);}
+  .skill-card.c-navy{border-top-color:var(--navy);}
+  .skill-card.c-mustard{border-top-color:var(--mustard);}
+  .skill-card h3{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink); margin-bottom:12px; font-weight:600;}
+  .skill-card ul{list-style:none;}
+  .skill-card li{position:relative; padding:5px 0 5px 17px; font-size:0.87rem; color:var(--ink-soft);}
+  .skill-card li::before{content:''; position:absolute; left:0; top:12.5px; width:5px; height:5px; border-radius:50%; background:var(--line);}
+  .skill-card.c-teal li::before{background:var(--teal);}
+  .skill-card.c-coral li::before{background:var(--coral);}
+  .skill-card.c-navy li::before{background:var(--navy);}
+  .skill-card.c-mustard li::before{background:var(--mustard);}
 
   /* SERVICES */
-  .services-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
-  .service-card{background:var(--white); padding:32px 28px; display:flex; flex-direction:column; gap:15px; transition:background .25s ease;}
-  .service-card:hover{background:var(--emerald-tint);}
-  .service-icon{width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:1px solid var(--gold-deep);}
-  .service-icon svg{width:19px; height:19px; stroke:var(--emerald-deep); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;}
-  .service-card h3{font-size:1.08rem; font-weight:600;}
+  .services-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px;}
+  .service-card{background:var(--card); border-radius:var(--r-lg); padding:28px 26px; display:flex; flex-direction:column; gap:14px; box-shadow:var(--shadow-sm); border:1px solid var(--line-soft); border-top:4px solid var(--line); transition:transform .25s ease, box-shadow .25s ease;}
+  .service-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .service-card.c-teal{border-top-color:var(--teal);}
+  .service-card.c-coral{border-top-color:var(--coral);}
+  .service-card.c-navy{border-top-color:var(--navy);}
+  .service-card.c-mustard{border-top-color:var(--mustard);}
+  .service-icon{width:42px; height:42px; border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center;}
+  .service-card.c-teal .service-icon{background:var(--teal-tint);}
+  .service-card.c-coral .service-icon{background:var(--coral-tint);}
+  .service-card.c-navy .service-icon{background:var(--navy-tint);}
+  .service-card.c-mustard .service-icon{background:var(--mustard-tint);}
+  .service-icon svg{width:20px; height:20px; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;}
+  .service-card.c-teal svg{stroke:var(--teal-deep);}
+  .service-card.c-coral svg{stroke:var(--coral-deep);}
+  .service-card.c-navy svg{stroke:var(--navy-deep);}
+  .service-card.c-mustard svg{stroke:var(--mustard-deep);}
+  .service-card h3{font-size:1.06rem; font-weight:600;}
   .service-card p{color:var(--ink-soft); font-size:0.9rem; flex-grow:1;}
-  .price-tag{font-family:'IBM Plex Mono', monospace; font-size:1.05rem; font-weight:600; color:var(--emerald-deep); border-top:1px solid var(--line); padding-top:16px;}
-  .price-tag em{font-style:normal; color:var(--ink-soft); font-weight:400; font-size:0.68rem; display:block; margin-top:5px; text-transform:uppercase; letter-spacing:0.05em;}
-  .price-note{margin-top:24px; font-size:0.87rem; color:var(--ink-soft); font-style:italic;}
+  .price-tag{display:inline-flex; flex-direction:column; gap:2px; font-family:'IBM Plex Mono', monospace; font-size:1rem; font-weight:600; color:var(--ink); background:var(--paper); border-radius:var(--r-sm); padding:10px 14px; align-self:flex-start;}
+  .price-tag em{font-style:normal; color:var(--ink-soft); font-weight:400; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.04em;}
+  .price-note{margin-top:26px; font-size:0.87rem; color:var(--ink-soft); font-style:italic;}
 
   /* WORK SAMPLES */
-  .subhead{display:flex; align-items:center; gap:14px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--emerald-deep); font-weight:600; margin:52px 0 22px;}
+  .subhead{display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink); font-weight:600; margin:52px 0 22px;}
   .subhead:first-of-type{margin-top:0;}
-  .subhead::after{content:''; flex:1; height:1px; background:var(--line);}
+  .subhead i{width:8px; height:8px; border-radius:2px; background:var(--mustard);}
 
-  .samples-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:26px; align-items:start;}
-  .ig-frame{position:relative; border:1px solid var(--emerald-deep); padding:9px; transition:transform .3s ease, border-color .3s ease;}
-  .ig-frame:hover{transform:translateY(-4px);}
-  .ig-frame:hover .corner{border-color:var(--gold-deep);}
-  .corner{position:absolute; width:14px; height:14px; border:0 solid var(--gold); transition:border-color .3s ease;}
-  .corner.tl{top:-1px; left:-1px; border-top-width:2px; border-left-width:2px;}
-  .corner.br{bottom:-1px; right:-1px; border-bottom-width:2px; border-right-width:2px;}
-  .ig-card{position:relative; overflow:hidden; background:linear-gradient(155deg, var(--emerald-deep), var(--ink) 130%); aspect-ratio:9/14; min-height:300px;}
+  .samples-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:22px; align-items:start;}
+  .ig-frame{position:relative; border-radius:var(--r-lg); overflow:hidden; background:var(--card); padding:8px; box-shadow:var(--shadow-sm); border:1px solid var(--line-soft); transition:transform .3s ease, box-shadow .3s ease;}
+  .ig-frame:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .ig-card{position:relative; overflow:hidden; border-radius:var(--r-md); background:linear-gradient(155deg, var(--navy-deep), var(--ink) 130%); aspect-ratio:9/14; min-height:290px;}
   .ig-card iframe{position:absolute; inset:0; width:100%; height:100%; border:none;}
-  .ig-fallback{
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
-    height:100%; padding:24px; text-align:center; position:relative;
-  }
-  .ig-fallback::before{content:''; position:absolute; inset:0; background:
-      repeating-linear-gradient(115deg, rgba(176,141,71,0.05) 0 1px, transparent 1px 34px);}
+  .ig-fallback{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; height:100%; padding:24px; text-align:center; position:relative;}
+  .ig-fallback::before{content:''; position:absolute; inset:0; background:repeating-linear-gradient(115deg, rgba(201,154,62,0.06) 0 1px, transparent 1px 34px);}
   .ig-card.has-embed .ig-fallback{display:none;}
-  .play-ring{width:52px; height:52px; border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; position:relative; z-index:1;}
-  .play-ring svg{width:16px; height:16px; fill:var(--gold);}
-  .ig-fallback p{font-size:0.78rem; color:rgba(247,243,234,0.62); position:relative; z-index:1; max-width:22ch;}
-  .ig-fallback a.watch{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); font-weight:600; border-bottom:1px solid var(--gold); padding-bottom:2px; position:relative; z-index:1;}
-  .ig-caption{display:flex; align-items:center; justify-content:space-between; padding:12px 3px 3px;}
-  .ig-caption .num{font-family:'IBM Plex Mono', monospace; font-size:0.64rem; letter-spacing:0.1em; color:var(--ink-soft);}
-  .ig-caption a{font-family:'IBM Plex Mono', monospace; font-size:0.64rem; letter-spacing:0.06em; color:var(--emerald-deep); font-weight:600;}
-  .ig-caption a:hover{color:var(--gold-deep);}
+  .play-ring{width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; position:relative; z-index:1;}
+  .play-ring svg{width:15px; height:15px; fill:var(--mustard);}
+  .ig-fallback p{font-size:0.77rem; color:rgba(245,243,237,0.6); position:relative; z-index:1; max-width:22ch;}
+  .ig-fallback a.watch{font-family:'IBM Plex Mono', monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--mustard); font-weight:600; border-bottom:1px solid var(--mustard); padding-bottom:2px; position:relative; z-index:1;}
+  .ig-caption{display:flex; align-items:center; justify-content:space-between; padding:12px 4px 4px;}
+  .ig-caption .num{font-family:'IBM Plex Mono', monospace; font-size:0.63rem; letter-spacing:0.08em; color:var(--ink-soft);}
+  .ig-caption a{font-family:'IBM Plex Mono', monospace; font-size:0.63rem; letter-spacing:0.05em; color:var(--navy-deep); font-weight:600;}
+  .ig-caption a:hover{color:var(--coral-deep);}
 
-  .docs-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .docs-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px;}
   .docs-grid--embeds{grid-template-columns:1fr 1fr 0.8fr;}
-  .doc-card{background:var(--white); padding:26px; display:flex; flex-direction:column; gap:13px; min-height:180px;}
-  .doc-icon{width:36px; height:36px; display:flex; align-items:center; justify-content:center; border:1px solid var(--wine);}
-  .doc-icon svg{width:16px; height:16px; stroke:var(--wine-deep); fill:none; stroke-width:1.6;}
-  .doc-card h4{font-size:0.98rem; font-weight:600; font-family:'Fraunces', serif;}
+  .doc-card{background:var(--card); border-radius:var(--r-lg); padding:24px; display:flex; flex-direction:column; gap:12px; min-height:180px; box-shadow:var(--shadow-sm); border:1px solid var(--line-soft);}
+  .doc-icon{width:38px; height:38px; border-radius:var(--r-sm); background:var(--coral-tint); display:flex; align-items:center; justify-content:center;}
+  .doc-icon svg{width:17px; height:17px; stroke:var(--coral-deep); fill:none; stroke-width:1.7;}
+  .doc-card h4{font-size:0.97rem; font-weight:600; font-family:'Fraunces', serif;}
   .doc-card p{font-size:0.85rem; color:var(--ink-soft); flex-grow:1;}
-  .doc-placeholder{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--wine-deep); background:var(--wine-tint); padding:7px 11px; align-self:flex-start;}
+  .doc-placeholder{font-family:'IBM Plex Mono', monospace; font-size:0.65rem; color:var(--coral-deep); background:var(--coral-tint); border-radius:20px; padding:7px 13px; align-self:flex-start;}
   .doc-card--embed{gap:12px;}
-  .doc-embed{border:1px solid var(--line);}
-  .doc-embed iframe{width:100%; height:340px; border:none; display:block;}
+  .doc-embed{border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line-soft);}
+  .doc-embed iframe{width:100%; height:330px; border:none; display:block;}
   @media (max-width: 900px){ .docs-grid--embeds{grid-template-columns:1fr 1fr;} }
   @media (max-width: 560px){ .docs-grid--embeds{grid-template-columns:1fr;} .doc-embed iframe{height:280px;} }
 
   /* CONTACT */
-  .contact-wrap{display:grid; grid-template-columns:1fr 0.9fr; gap:60px; align-items:stretch;}
-  .contact-list{display:flex; flex-direction:column; gap:0;}
-  .contact-item{display:flex; align-items:center; gap:18px; padding:19px 0; border-bottom:1px solid var(--line);}
-  .contact-icon{width:42px; height:42px; display:flex; align-items:center; justify-content:center; border:1px solid var(--emerald-deep); flex-shrink:0;}
-  .contact-icon svg{width:18px; height:18px; stroke:var(--emerald-deep); fill:none; stroke-width:1.6;}
-  .contact-item .label{font-family:'IBM Plex Mono', monospace; font-size:0.62rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin-bottom:4px;}
-  .contact-item .value{font-size:1rem; font-weight:500;}
+  .contact-wrap{display:grid; grid-template-columns:1fr 0.92fr; gap:28px; align-items:stretch;}
+  .contact-list{background:var(--card); border-radius:var(--r-lg); padding:8px 26px; box-shadow:var(--shadow-sm); border:1px solid var(--line-soft);}
+  .contact-item{display:flex; align-items:center; gap:16px; padding:18px 0; border-bottom:1px solid var(--line-soft);}
+  .contact-item:last-child{border-bottom:none;}
+  .contact-icon{width:40px; height:40px; border-radius:var(--r-sm); background:var(--navy-tint); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .contact-icon svg{width:17px; height:17px; stroke:var(--navy-deep); fill:none; stroke-width:1.7;}
+  .contact-item .label{font-family:'IBM Plex Mono', monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin-bottom:4px;}
+  .contact-item .value{font-size:0.98rem; font-weight:600;}
   .contact-item .value.placeholder{color:var(--ink-soft); font-style:italic; font-weight:400;}
-  .contact-cta{background:var(--emerald-deep); color:var(--white); padding:44px 36px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; border:1px solid var(--gold-deep);}
-  .contact-cta::before{content:''; position:absolute; top:-1px; left:-1px; right:-1px; height:2px; background:linear-gradient(90deg, var(--gold), transparent 70%);}
-  .contact-cta > *{position:relative; z-index:1;}
-  .contact-cta h3{color:var(--white); font-size:1.5rem; margin-bottom:13px; line-height:1.25;}
-  .contact-cta p{color:rgba(247,243,234,0.75); margin-bottom:26px; font-size:0.95rem;}
 
-  footer{padding:32px 0; border-top:1px solid var(--line); text-align:center;}
-  footer p{font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--ink-soft); letter-spacing:0.05em;}
+  .contact-cta{position:relative; background:var(--navy-deep); color:#fff; border-radius:var(--r-lg); padding:20px 32px 34px; display:flex; flex-direction:column; justify-content:center; overflow:hidden;}
+  .contact-cta::before{content:''; position:absolute; top:26px; left:0; right:0; height:0; border-top:2px dashed rgba(245,243,237,0.28);}
+  .contact-cta::after{content:''; position:absolute; top:26px; left:-9px; width:18px; height:18px; border-radius:50%; background:var(--paper);}
+  .tear-notch{position:absolute; top:26px; right:-9px; width:18px; height:18px; border-radius:50%; background:var(--paper);}
+  .contact-cta .rx-label{font-family:'IBM Plex Mono', monospace; font-size:0.62rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--mustard); margin-bottom:14px;}
+  .contact-cta .rx-body{padding-top:20px;}
+  .contact-cta h3{color:#fff; font-size:1.42rem; margin-bottom:12px; line-height:1.25;}
+  .contact-cta p{color:rgba(245,243,237,0.72); margin-bottom:24px; font-size:0.94rem;}
 
-  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  footer{padding:30px 0; text-align:center;}
+  footer p{font-family:'IBM Plex Mono', monospace; font-size:0.65rem; color:var(--ink-soft); letter-spacing:0.04em;}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
   @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;} }
+
+  a:focus-visible, button:focus-visible{outline:2px solid var(--navy-deep); outline-offset:2px;}
 
   @media (max-width: 900px){
     nav{display:none;}
     .burger{display:flex;}
-    .hero-grid, .about-grid, .contact-wrap{grid-template-columns:1fr; gap:38px;}
+    .hero-grid, .about-grid{grid-template-columns:1fr; gap:38px;}
+    .contact-wrap{grid-template-columns:1fr;}
     .services-grid{grid-template-columns:repeat(2, 1fr);}
     .samples-grid{grid-template-columns:repeat(2, 1fr);}
     .docs-grid{grid-template-columns:1fr 1fr;}
     .skills-grid{grid-template-columns:1fr;}
-    section{padding:52px 0;}
-    .hero{padding:40px 0 34px;}
-    .hero-watermark{display:none;}
+    section{padding:56px 0;}
+    .hero{padding:36px 0 40px;}
   }
   @media (max-width: 560px){
     .services-grid{grid-template-columns:1fr;}
@@ -238,50 +253,46 @@
     .docs-grid{grid-template-columns:1fr;}
     .hero-ctas{flex-direction:column; align-items:stretch;}
     .btn{justify-content:center;}
-    .brand-text{font-size:0.94rem;}
-    .stat-row{flex-direction:column;}
-    .stat-chip + .stat-chip{border-left:none; border-top:1px solid var(--line);}
+    .brand-text{font-size:0.92rem;}
+    .stat-row{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
 
 <header>
+  <div class="scroll-track"><div class="scroll-fill" id="scrollFill"></div></div>
   <div class="nav-inner">
     <div class="brand">
       <svg class="mark-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="32,3 58,17 58,47 32,61 6,47 6,17" fill="var(--emerald-deep)" stroke="var(--gold)" stroke-width="1.1"/>
-        <polygon points="32,9 52,20.5 52,43.5 32,55 12,43.5 12,20.5" fill="none" stroke="var(--gold)" stroke-width="0.5" opacity="0.5"/>
-        <text x="23" y="40" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="25" fill="#f7f3ea" text-anchor="middle">R</text>
-        <text x="41" y="40" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="25" fill="#d4b876" text-anchor="middle">D</text>
+        <rect x="8" y="4" width="48" height="56" rx="7" fill="var(--navy-deep)"/>
+        <rect x="8" y="4" width="48" height="56" rx="7" fill="none" stroke="var(--mustard)" stroke-width="1.1"/>
+        <rect x="8" y="16" width="48" height="4" fill="var(--teal)"/>
+        <text x="22" y="43" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="23" fill="#f5f3ed" text-anchor="middle">R</text>
+        <text x="40" y="43" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="23" fill="var(--mustard)" text-anchor="middle">D</text>
       </svg>
       <div class="brand-text">Rahmat Dawood<small>Medical Virtual Assistant</small></div>
     </div>
     <nav>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services &amp; Pricing</a></li>
-        <li><a href="#work">Work Samples</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-c="teal"><i></i>About</a></li>
+        <li><a href="#services" data-c="coral"><i></i>Services &amp; Pricing</a></li>
+        <li><a href="#work" data-c="mustard"><i></i>Work Samples</a></li>
+        <li><a href="#contact" data-c="navy"><i></i>Contact</a></li>
       </ul>
     </nav>
     <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about">About</a>
-    <a href="#services">Services &amp; Pricing</a>
-    <a href="#work">Work Samples</a>
-    <a href="#contact">Contact</a>
+    <a href="#about" data-c="teal"><i></i>About</a>
+    <a href="#services" data-c="coral"><i></i>Services &amp; Pricing</a>
+    <a href="#work" data-c="mustard"><i></i>Work Samples</a>
+    <a href="#contact" data-c="navy"><i></i>Contact</a>
   </div>
 </header>
 
 <!-- HERO -->
 <section id="top" class="hero">
-  <svg class="hero-watermark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="32,3 58,17 58,47 32,61 6,47 6,17" fill="none" stroke="var(--emerald-deep)" stroke-width="0.6"/>
-    <text x="23" y="40" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="25" fill="var(--emerald-deep)" text-anchor="middle">R</text>
-    <text x="41" y="40" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="25" fill="var(--gold-deep)" text-anchor="middle">D</text>
-  </svg>
   <div class="wrap hero-grid">
     <div>
       <div class="stamp">Available for new clients</div>
@@ -292,41 +303,39 @@
       <p class="role">Medical Virtual Assistant</p>
       <p class="lede">I handle the administrative backbone of patient care: intake, scheduling, documentation, and records, so your clinical team can stay focused on patients, not paperwork.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn btn-emerald">Work With Me →</a>
-        <a href="#work" class="btn btn-gold">View Work Samples</a>
+        <a href="#contact" class="btn btn-navy">Work With Me →</a>
+        <a href="#work" class="btn btn-outline">View Work Samples</a>
       </div>
     </div>
 
     <div>
-      <div class="card-stack">
+      <div class="chart-wrap">
         <svg class="chart-card" viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
-          <rect x="24" y="18" width="230" height="330" fill="var(--paper)" stroke="var(--line)" transform="rotate(4 139 183)"/>
+          <rect x="22" y="16" width="238" height="336" rx="16" fill="var(--paper-deep)" transform="rotate(4 141 184)"/>
           <g transform="rotate(-3 130 175)">
-            <rect x="10" y="10" width="230" height="330" fill="#ffffff" stroke="var(--gold-deep)" stroke-width="1"/>
-            <rect x="10" y="10" width="230" height="46" fill="var(--emerald-deep)"/>
-            <text x="28" y="38" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" fill="#f7f3ea">PATIENT INTAKE</text>
-            <rect x="212" y="28" width="8" height="8" fill="var(--gold)" transform="rotate(45 216 32)"/>
-            <line x1="28" y1="82" x2="222" y2="82" stroke="var(--line)" stroke-width="2"/>
-            <rect x="28" y="72" width="70" height="8" fill="var(--emerald-tint)"/>
-            <line x1="28" y1="112" x2="222" y2="112" stroke="var(--line)" stroke-width="2"/>
-            <rect x="28" y="102" width="110" height="8" fill="var(--emerald-tint)"/>
-            <line x1="28" y1="142" x2="222" y2="142" stroke="var(--line)" stroke-width="2"/>
-            <rect x="28" y="132" width="90" height="8" fill="var(--gold-tint)"/>
-            <g font-family="Manrope, sans-serif" font-size="11" fill="var(--ink-soft)">
-              <rect x="28" y="172" width="12" height="12" fill="var(--emerald)"/>
-              <path d="M31 178l2.4 2.4L37 175" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="48" y="182">Insurance verified</text>
-              <rect x="28" y="198" width="12" height="12" fill="var(--emerald)"/>
-              <path d="M31 204l2.4 2.4L37 201" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="48" y="208">Records updated</text>
-              <rect x="28" y="224" width="12" height="12" fill="none" stroke="var(--line)" stroke-width="1.6"/>
-              <text x="48" y="234">Follow-up scheduled</text>
+            <rect x="8" y="8" width="238" height="336" rx="16" fill="#ffffff"/>
+            <rect x="8" y="8" width="238" height="50" rx="16" fill="var(--navy-deep)"/>
+            <rect x="8" y="38" width="238" height="20" fill="var(--navy-deep)"/>
+            <text x="26" y="39" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" fill="#f5f3ed">PATIENT INTAKE</text>
+            <circle cx="222" cy="33" r="5" fill="var(--mustard)"/>
+            <rect x="26" y="82" width="76" height="9" rx="4" fill="var(--teal-tint)"/>
+            <rect x="26" y="112" width="116" height="9" rx="4" fill="var(--teal-tint)"/>
+            <rect x="26" y="142" width="94" height="9" rx="4" fill="var(--mustard-tint)"/>
+            <g font-family="Inter, sans-serif" font-size="11" fill="var(--ink-soft)">
+              <rect x="26" y="176" width="15" height="15" rx="4" fill="var(--teal)"/>
+              <path d="M29.5 183.5l2.6 2.6L37.5 180" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="49" y="187">Insurance verified</text>
+              <rect x="26" y="204" width="15" height="15" rx="4" fill="var(--teal)"/>
+              <path d="M29.5 211.5l2.6 2.6L37.5 208" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="49" y="215">Records updated</text>
+              <rect x="26" y="232" width="15" height="15" rx="4" fill="none" stroke="var(--line)" stroke-width="1.8"/>
+              <text x="49" y="243">Follow-up scheduled</text>
             </g>
-            <rect x="10" y="292" width="230" height="48" fill="var(--paper)"/>
-            <text x="28" y="313" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1.4" fill="var(--ink-soft)">STATUS</text>
-            <text x="28" y="329" font-family="Fraunces, serif" font-size="14" font-weight="600" fill="var(--emerald-deep)">Ready for review</text>
+            <rect x="8" y="288" width="238" height="56" rx="16" fill="var(--paper)"/>
+            <rect x="8" y="288" width="238" height="20" fill="var(--paper)"/>
+            <text x="26" y="312" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1.4" fill="var(--ink-soft)">STATUS</text>
+            <text x="26" y="330" font-family="Fraunces, serif" font-size="15" font-weight="600" fill="var(--navy-deep)">Ready for review</text>
           </g>
-          <path d="M52 4 v34 a10 10 0 0 1-20 0 v-26" fill="none" stroke="var(--gold)" stroke-width="4" stroke-linecap="round"/>
         </svg>
       </div>
       <div class="stat-row">
@@ -338,14 +347,12 @@
   </div>
 </section>
 
-<hr class="rule">
-
 <!-- ABOUT -->
 <section id="about" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span>About Me</span></div>
-      <h2>A dependable extra pair of hands for <span class="mark mark--wine">healthcare teams</span></h2>
+      <div class="eyebrow c-teal"><i></i><span>About Me</span></div>
+      <h2>A dependable extra pair of hands for <span class="mark mark--teal">healthcare teams</span></h2>
       <p>Over the last two months I've trained intensively as a Medical Virtual Assistant, building real fluency in patient-facing administration, clinical documentation, and the compliance standards that protect patient trust.</p>
     </div>
 
@@ -353,60 +360,54 @@
       <div class="about-copy">
         <p>I'm Rahmat Adeola Dawood, a Medical Virtual Assistant supporting clinics and providers remotely. My focus is simple: handle the administrative and documentation load accurately and on time, with patient privacy treated as non-negotiable at every step.</p>
         <p>I came into this field through structured, hands-on MVA training covering intake, EMR systems, medical coding, and HIPAA-compliant communication, and I've kept building on it every week since.</p>
-        <div class="pull-line">"Whether it's a scheduling calendar, an EMR entry, or a SOAP note, I hold myself to the same standard: <span class="mark mark--teal">accurate, fast, discreet</span>."</div>
+        <div class="pull-line">"Whether it's a scheduling calendar, an EMR entry, or a SOAP note, I hold myself to the same standard: <span class="mark mark--mustard">accurate, fast, discreet</span>."</div>
       </div>
 
       <div class="skills-grid">
-        <div>
-          <div class="skills-block">
-            <h3>Clinical &amp; Medical Knowledge</h3>
-            <ul>
-              <li>Medical terminology (root words, prefixes, suffixes)</li>
-              <li>Healthcare systems &amp; structures</li>
-              <li>Patient care workflows</li>
-              <li>Common medical abbreviations</li>
-            </ul>
-          </div>
-          <div class="skills-block">
-            <h3>Compliance &amp; Privacy</h3>
-            <ul>
-              <li>HIPAA compliance awareness</li>
-              <li>Patient data confidentiality &amp; privacy handling</li>
-              <li>Protected Health Information (PHI) management</li>
-              <li>Healthcare regulatory standards</li>
-            </ul>
-          </div>
-          <div class="skills-block">
-            <h3>EMR / EHR &amp; Digital Tools</h3>
-            <ul>
-              <li>Electronic Medical Records (EMR) management</li>
-              <li>OpenEMR navigation</li>
-              <li>Patient registration, onboarding &amp; data entry</li>
-              <li>Digital healthcare tools management</li>
-            </ul>
-          </div>
+        <div class="skill-card c-teal">
+          <h3>Clinical &amp; Medical Knowledge</h3>
+          <ul>
+            <li>Medical terminology (root words, prefixes, suffixes)</li>
+            <li>Healthcare systems &amp; structures</li>
+            <li>Patient care workflows</li>
+            <li>Common medical abbreviations</li>
+          </ul>
         </div>
-        <div>
-          <div class="skills-block">
-            <h3>Medical Coding &amp; Records</h3>
-            <ul>
-              <li>Medical coding (AMA &amp; CMS code sets)</li>
-              <li>CPT code lookup &amp; interpretation</li>
-              <li>HCPCS Level II code familiarity</li>
-              <li>Medical documentation review &amp; records analysis</li>
-              <li>Clinical documentation support</li>
-            </ul>
-          </div>
-          <div class="skills-block">
-            <h3>Communication &amp; Admin Support</h3>
-            <ul>
-              <li>Professional, empathetic patient communication</li>
-              <li>Patient intake &amp; appointment scheduling</li>
-              <li>SOAP note documentation</li>
-              <li>HMO / insurance verification</li>
-              <li>Data accuracy &amp; attention to detail</li>
-            </ul>
-          </div>
+        <div class="skill-card c-coral">
+          <h3>Compliance &amp; Privacy</h3>
+          <ul>
+            <li>HIPAA compliance awareness</li>
+            <li>Patient data confidentiality &amp; privacy handling</li>
+            <li>Protected Health Information (PHI) management</li>
+            <li>Healthcare regulatory standards</li>
+          </ul>
+        </div>
+        <div class="skill-card c-navy">
+          <h3>EMR / EHR &amp; Digital Tools</h3>
+          <ul>
+            <li>Electronic Medical Records (EMR) management</li>
+            <li>OpenEMR navigation</li>
+            <li>Patient registration, onboarding &amp; data entry</li>
+            <li>Digital healthcare tools management</li>
+          </ul>
+        </div>
+        <div class="skill-card c-mustard">
+          <h3>Medical Coding &amp; Records</h3>
+          <ul>
+            <li>Medical coding (AMA &amp; CMS code sets)</li>
+            <li>CPT code lookup &amp; interpretation</li>
+            <li>HCPCS Level II code familiarity</li>
+            <li>Documentation review &amp; records analysis</li>
+          </ul>
+        </div>
+        <div class="skill-card c-teal" style="grid-column:1 / -1;">
+          <h3>Communication &amp; Admin Support</h3>
+          <ul>
+            <li>Professional, empathetic patient communication</li>
+            <li>Patient intake &amp; appointment scheduling</li>
+            <li>SOAP note documentation</li>
+            <li>HMO / insurance verification · data accuracy &amp; attention to detail</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -417,43 +418,43 @@
 <section id="services" class="alt reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span>Services &amp; Pricing</span></div>
-      <h2>Support built around <span class="mark mark--teal">your workflow</span></h2>
+      <div class="eyebrow c-coral"><i></i><span>Services &amp; Pricing</span></div>
+      <h2>Support built around <span class="mark mark--coral">your workflow</span></h2>
       <p>Starting rates below, easy to adjust to your scope, hours, and volume. Reach out for a custom quote.</p>
     </div>
 
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card c-teal">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 3v3M16 3v3"/><circle cx="8.5" cy="14" r="1"/><circle cx="12" cy="14" r="1"/><circle cx="15.5" cy="14" r="1"/></svg></div>
         <h3>Patient Intake &amp; Scheduling</h3>
         <p>New patient onboarding, appointment booking, calendar management, and reminder follow-ups.</p>
         <div class="price-tag">$10 / hr<em>or $180 per week, part-time</em></div>
       </div>
-      <div class="service-card">
+      <div class="service-card c-coral">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M15 3v5h5M9 13h6M9 17h6M9 9h2"/></svg></div>
         <h3>Documentation &amp; SOAP Notes</h3>
         <p>Accurate SOAP note documentation and clinical documentation support, formatted to your practice's standard.</p>
         <div class="price-tag">$12 / hr<em>or $3 per note</em></div>
       </div>
-      <div class="service-card">
+      <div class="service-card c-navy">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5V12c0 1.5 3.5 2.8 8 2.8s8-1.3 8-2.8V5.5M4 12v6.5c0 1.5 3.5 2.8 8 2.8s8-1.3 8-2.8V12"/></svg></div>
         <h3>EMR / EHR Data Entry</h3>
         <p>Patient registration, data entry, and records management inside OpenEMR or your preferred EHR system.</p>
         <div class="price-tag">$9 / hr<em>volume discounts available</em></div>
       </div>
-      <div class="service-card">
+      <div class="service-card c-mustard">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l8 3.5v5.2C20 17 16.6 20.4 12 21.5 7.4 20.4 4 17 4 11.7V6.5L12 3z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Insurance &amp; Coding Support</h3>
         <p>HMO/insurance verification and CPT / HCPCS Level II code lookup to support accurate billing.</p>
         <div class="price-tag">$11 / hr<em>or $2 per claim checked</em></div>
       </div>
-      <div class="service-card">
+      <div class="service-card c-teal">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1H9l-4 4v-4H4a1 1 0 01-1-1V6a1 1 0 011-1z"/><rect x="10" y="9" width="4" height="3" rx="0.5"/><path d="M11 9V8a1 1 0 012 0v1"/></svg></div>
         <h3>HIPAA-Compliant Communication</h3>
         <p>Professional, empathetic patient-facing communication that keeps PHI handled correctly, every time.</p>
         <div class="price-tag">$10 / hr<em>email, chat &amp; phone support</em></div>
       </div>
-      <div class="service-card">
+      <div class="service-card c-coral">
         <div class="service-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18"/></svg></div>
         <h3>General Admin Support</h3>
         <p>Ongoing administrative support across intake, documentation, and records, tailored to your practice.</p>
@@ -468,15 +469,14 @@
 <section id="work" class="reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span>Work Samples</span></div>
-      <h2>See the work in <span class="mark mark--wine">motion</span></h2>
+      <div class="eyebrow c-mustard"><i></i><span>Work Samples</span></div>
+      <h2>See the work in <span class="mark mark--mustard">motion</span></h2>
       <p>Live clips from my training and practice work as an MVA, plus sample documentation.</p>
     </div>
 
-    <div class="subhead">Video Reels</div>
+    <div class="subhead"><i></i>Video Reels</div>
     <div class="samples-grid" id="igGrid">
       <div class="ig-frame">
-        <span class="corner tl"></span><span class="corner br"></span>
         <div class="ig-card">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZhdxcfIxst/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
           <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
@@ -484,7 +484,6 @@
         <div class="ig-caption"><span class="num">CLIP 01</span><a href="https://www.instagram.com/reel/DZhdxcfIxst/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
       <div class="ig-frame">
-        <span class="corner tl"></span><span class="corner br"></span>
         <div class="ig-card">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZzjMiLIohT/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
           <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
@@ -492,7 +491,6 @@
         <div class="ig-caption"><span class="num">CLIP 02</span><a href="https://www.instagram.com/reel/DZzjMiLIohT/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
       <div class="ig-frame">
-        <span class="corner tl"></span><span class="corner br"></span>
         <div class="ig-card">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaFKLYqI_CY/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
           <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
@@ -500,7 +498,6 @@
         <div class="ig-caption"><span class="num">CLIP 03</span><a href="https://www.instagram.com/reel/DaFKLYqI_CY/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
       <div class="ig-frame">
-        <span class="corner tl"></span><span class="corner br"></span>
         <div class="ig-card">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaahItjoAwj/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
           <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
@@ -508,7 +505,6 @@
         <div class="ig-caption"><span class="num">CLIP 04</span><a href="https://www.instagram.com/reel/DaahItjoAwj/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
       <div class="ig-frame">
-        <span class="corner tl"></span><span class="corner br"></span>
         <div class="ig-card">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DasrA3NIrjl/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
           <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
@@ -516,7 +512,6 @@
         <div class="ig-caption"><span class="num">CLIP 05</span><a href="https://www.instagram.com/reel/DasrA3NIrjl/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
       <div class="ig-frame">
-        <span class="corner tl"></span><span class="corner br"></span>
         <div class="ig-card">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DasrOQfo0ep/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
           <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
@@ -524,7 +519,6 @@
         <div class="ig-caption"><span class="num">CLIP 06</span><a href="https://www.instagram.com/reel/DasrOQfo0ep/" target="_blank" rel="noopener">Open ↗</a></div>
       </div>
       <div class="ig-frame">
-        <span class="corner tl"></span><span class="corner br"></span>
         <div class="ig-card">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Das04QaIQvh/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/Das04QaIQvh/" target="_blank" rel="noopener">View on Instagram</a></blockquote>
           <div class="ig-fallback"><div class="play-ring"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div><p>Some browsers block Instagram's player in preview windows.</p><a class="watch" href="https://www.instagram.com/reel/Das04QaIQvh/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
@@ -533,7 +527,7 @@
       </div>
     </div>
 
-    <div class="subhead">Documents &amp; SOAP Notes</div>
+    <div class="subhead"><i></i>Documents &amp; SOAP Notes</div>
     <div class="docs-grid docs-grid--embeds">
       <div class="doc-card doc-card--embed">
         <h4>SOAP Note Sample — Week 2</h4>
@@ -549,11 +543,12 @@
           <iframe src="https://docs.google.com/document/d/1qFM8bpgw8BJk_SAhYyvC5_TIGKDWa2rKIKH1_2xSLtU/preview" loading="lazy" allow="autoplay"></iframe>
         </div>
       </div>
-      <div class="doc-card">
-        <div class="doc-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M15 3v5h5M9 13h6M9 17h6"/></svg></div>
+      <div class="doc-card doc-card--embed">
         <h4>Sample Records Log</h4>
-        <p>Send me another Google Doc link (Share → "Anyone with the link" → Viewer) and I'll embed it here too.</p>
-        <span class="doc-placeholder">[ Waiting on link ]</span>
+        <p>Patient records tracking spreadsheet from training, logging intake status, coding, and follow-ups.</p>
+        <div class="doc-embed">
+          <iframe src="https://docs.google.com/spreadsheets/d/1i_6g2aDVWLv6yNyjPQQn4VsTCaYAI8mceBSB8JxsdCY/preview" loading="lazy" allow="autoplay"></iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -563,7 +558,7 @@
 <section id="contact" class="alt reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span>Contact Me</span></div>
+      <div class="eyebrow c-navy"><i></i><span>Contact Me</span></div>
       <h2>Let's keep your <span class="mark mark--teal">front office</span> running smoothly.</h2>
       <p>Reach out with your scope of work and I'll follow up within one business day.</p>
     </div>
@@ -589,9 +584,13 @@
       </div>
 
       <div class="contact-cta">
-        <h3>Ready to hand off your admin work?</h3>
-        <p>Tell me what your practice needs support with: intake, documentation, records, or all three, and I'll put together a plan.</p>
-        <a href="mailto:youremail@example.com" class="btn btn-emerald">Send Me a Message →</a>
+        <span class="tear-notch"></span>
+        <div class="rx-label">℞ — engagement request</div>
+        <div class="rx-body">
+          <h3>Ready to hand off your admin work?</h3>
+          <p>Tell me what your practice needs support with: intake, documentation, records, or all three, and I'll put together a plan.</p>
+          <a href="mailto:youremail@example.com" class="btn btn-navy" style="background:var(--mustard-deep);">Send Me a Message →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -638,6 +637,34 @@
       }
     });
   }, 6000);
+
+  // scroll progress "chart pulse" bar
+  const fill = document.getElementById('scrollFill');
+  function updateScroll(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const max = h.scrollHeight - h.clientHeight;
+    fill.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', updateScroll, { passive:true });
+  updateScroll();
+
+  // active nav highlighting
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  const sections = ['about','services','work','contact'].map(id => document.getElementById(id));
+  if('IntersectionObserver' in window){
+    const navIo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = document.querySelector('nav a[href="#' + entry.target.id + '"]');
+        if(!link) return;
+        if(entry.isIntersecting){
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    sections.forEach(s => { if(s) navIo.observe(s); });
+  }
 </script>
 
 </body>
