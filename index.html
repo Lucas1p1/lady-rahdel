@@ -70,6 +70,13 @@
   .mark--coral{background-image:linear-gradient(var(--coral-tint), var(--coral-tint));}
   .mark--mustard{background-image:linear-gradient(var(--mustard-tint), var(--mustard-tint));}
 
+  /* hand-drawn circle emphasis */
+  .circle{position:relative; display:inline-block; overflow:visible;}
+  .circle-svg{position:absolute; pointer-events:none; z-index:1; overflow:visible;}
+  .circle--1 .circle-svg{top:-30%; left:-9%; width:118%; height:158%; transform:rotate(-1.2deg);}
+  .circle--2 .circle-svg{top:-26%; left:-6%; width:112%; height:150%; transform:rotate(1deg);}
+  .circle--3 .circle-svg{top:-28%; left:-7%; width:114%; height:154%; transform:rotate(-0.6deg);}
+
   /* NAV */
   header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.86); backdrop-filter:blur(14px);}
   .scroll-track{height:3px; width:100%; background:var(--line-soft);}
@@ -298,7 +305,11 @@
     <div>
       <div class="stamp">Available for new clients</div>
       <h1>Reliable, fast, and
-        <span class="mark mark--teal">HIPAA-aware</span>
+        <span class="mark mark--teal circle circle--1">HIPAA-aware
+          <svg class="circle-svg" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M9,53 C4,17 44,6 150,5 C259,4 297,19 291,52 C297,87 255,96 150,95 C43,96 3,84 9,53" fill="none" stroke="var(--teal)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </span>
         support for your practice.
       </h1>
       <p class="role">Medical Virtual Assistant</p>
@@ -353,7 +364,11 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow c-teal"><i></i><span>About Me</span></div>
-      <h2>A dependable extra pair of hands for <span class="mark mark--teal">healthcare teams</span></h2>
+      <h2>A dependable extra pair of hands for <span class="mark mark--teal circle circle--2">healthcare teams
+        <svg class="circle-svg" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M10,50 C6,19 42,7 150,6 C256,5 293,20 289,51 C293,84 258,95 150,94 C41,95 5,82 10,50" fill="none" stroke="var(--teal)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </span></h2>
       <p>Over the last two months I've trained intensively as a Medical Virtual Assistant, building real fluency in patient-facing administration, clinical documentation, and the compliance standards that protect patient trust.</p>
     </div>
 
@@ -361,7 +376,11 @@
       <div class="about-copy">
         <p>I'm Rahmat Adeola Dawood, a Medical Virtual Assistant supporting clinics and providers remotely. My focus is simple: handle the administrative and documentation load accurately and on time, with patient privacy treated as non-negotiable at every step.</p>
         <p>I came into this field through structured, hands-on MVA training covering intake, EMR systems, medical coding, and HIPAA-compliant communication, and I've kept building on it every week since.</p>
-        <div class="pull-line">"Whether it's a scheduling calendar, an EMR entry, or a SOAP note, I hold myself to the same standard: <span class="mark mark--mustard">accurate, fast, discreet</span>."</div>
+        <div class="pull-line">"Whether it's a scheduling calendar, an EMR entry, or a SOAP note, I hold myself to the same standard: <span class="mark mark--mustard circle circle--3">accurate, fast, discreet
+          <svg class="circle-svg" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M8,52 C3,16 40,5 150,4 C261,3 298,18 292,51 C298,85 260,97 150,96 C39,97 2,83 8,52" fill="none" stroke="var(--mustard)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </span>."</div>
       </div>
 
       <div class="skills-grid">
