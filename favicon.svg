@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#0d2337"/>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="none" stroke="#c99a3e" stroke-width="2"/>
+  <rect x="4" y="19" width="56" height="5" fill="#0e7c66"/>
+  <text x="21" y="47" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="26" fill="#f5f3ed" text-anchor="middle">R</text>
+  <text x="42" y="47" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="26" fill="#c99a3e" text-anchor="middle">D</text>
+</svg>
